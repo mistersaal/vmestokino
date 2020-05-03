@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'vk',
         'passwords' => 'users',
     ],
 
@@ -39,6 +39,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'vk' => [
+            'driver' => 'vkHeader',
+            'provider' => 'vkUsers',
         ],
 
         'api' => [
@@ -68,6 +73,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+
+        'vkUsers' => [
+            'driver' => 'vk',
             'model' => App\User::class,
         ],
 
