@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::post('/login', 'LoginController@login')->name('login');
+
+Route::middleware('auth.vk')->group(function () {
+    Route::post('/room', 'RoomController@create')->name('room.create');
+});
