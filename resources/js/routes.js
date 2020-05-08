@@ -1,5 +1,5 @@
-import Welcome from "./views/Welcome";
-import Menu from "./views/Menu";
+import Welcome from "./views/Welcome/index";
+import Menu from "./views/Menu/index";
 
 export default [
     {
