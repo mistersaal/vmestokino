@@ -9,7 +9,7 @@
         <form @submit.prevent>
             <div class="modal-card" style="width: auto">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Создать комнату</p>
+                    <p class="modal-card-title has-text-weight-bold has-text-primary">Создать комнату</p>
                 </header>
                 <section class="modal-card-body">
                     <b-field label="Название">
