@@ -26,13 +26,19 @@ class RoomController extends Controller
 
     private function getValidDataForCreating()
     {
+        $room = new Room();
         return request()->validate([
             'title' => 'required|string|max:100',
             'everyone_control' => 'required|boolean',
-            'url' => 'required|string|max:1000',
             'type' => [
                 'required',
-                Rule::in((new Room())->types)
+                Rule::in($room->types)
+            ],
+            'url' => [
+                'required',
+                'string',
+                'max:1000',
+                'regex:' . ($room->validUrls[request('type')] ?? '/^\s*$/')
             ]
         ]);
     }

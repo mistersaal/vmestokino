@@ -18,6 +18,9 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     public $types = ['youtube'];
+    public $validUrls = [
+        'youtube' => '~^(https://)?((www|m)\.)?youtube\.com/watch\?v=.+~'
+    ];
     protected $fillable = [
         'password',
         'title',
