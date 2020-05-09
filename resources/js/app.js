@@ -12,5 +12,3 @@ const app = new Vue({
     el: '#app',
     router
 });
-
-bridge.send("VKWebAppInit", {});
