@@ -41,3 +41,6 @@ Vue.use(Buefy, {
 import bridge from '@vkontakte/vk-bridge';
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 window.bridge = bridge;
+
+import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(VueYouTubeEmbed)

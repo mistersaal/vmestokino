@@ -10,7 +10,7 @@
         name: "App",
         data() {
             return {
-                appInit: false,
+                appInit: true,//TODO
                 isLoading: true
             };
         },
@@ -35,9 +35,13 @@
             }, 5 * 1000);
             axios.post('/login').then(response => {
                 if (response.data.newUser) {
-                    this.$router.replace('/welcome');
+                    if (this.$route.path !== '/welcome') {
+                        this.$router.replace('/welcome');
+                    }
                 } else if (response.data.hasRoom) {
-                    this.$router.replace('/room');
+                    if (this.$route.path !== '/room') {
+                        this.$router.replace('/room');
+                    }
                 }
                 this.isLoading = false;
             });

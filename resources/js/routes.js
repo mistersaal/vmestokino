@@ -1,5 +1,6 @@
 import Welcome from "./views/Welcome/index";
 import Menu from "./views/Menu/index";
+import Room from "./views/Room/index";
 
 export default [
     {
@@ -9,5 +10,13 @@ export default [
     {
         path: '/',
         component: Menu
+    },
+    {
+        path: '/room',
+        component: Room
+    },
+    {
+        path: '/room/:id',
+        component: Room
     }
 ];
