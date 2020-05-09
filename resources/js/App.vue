@@ -36,6 +36,8 @@
             axios.post('/login').then(response => {
                 if (response.data.newUser) {
                     this.$router.replace('/welcome');
+                } else if (response.data.hasRoom) {
+                    this.$router.replace('/room');
                 }
                 this.isLoading = false;
             });
