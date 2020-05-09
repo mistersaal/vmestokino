@@ -9,7 +9,7 @@
                       icon-pack="fab"
                       @click="createRoom(
                           'youtube',
-                          '^(https://)?((www|m)\\.)?youtube\\.com/watch\\?v=.+'
+                          '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+'
                       )"
             >
                 YouTube

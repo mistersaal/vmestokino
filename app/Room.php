@@ -19,7 +19,7 @@ class Room extends Model
 {
     public $types = ['youtube'];
     public $validUrls = [
-        'youtube' => '~^(https://)?((www|m)\.)?youtube\.com/watch\?v=.+~'
+        'youtube' => '~^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+~'
     ];
     protected $fillable = [
         'password',
