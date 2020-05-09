@@ -7,7 +7,10 @@
                       expanded
                       icon-left="youtube"
                       icon-pack="fab"
-                      @click="createRoom('youtube')"
+                      @click="createRoom(
+                          'youtube',
+                          '^(https://)?((www|m)\\.)?youtube\\.com/watch\\?v=.+'
+                      )"
             >
                 YouTube
             </b-button>
@@ -15,33 +18,37 @@
                 Скоро будет ещё
             </b-button>
         </div>
-        <create-modal
+        <create-room
             :is-creating="isCreating"
             :type-for-creating="typeForCreating"
+            :regexp-url="regexpUrl"
             @close="closeModal"
-        ></create-modal>
+        ></create-room>
     </div>
 </template>
 
 <script>
-    import CreateModal from "./CreateModal";
+    import CreateRoom from "./CreateRoom";
     export default {
         name: "CreateButtons",
         data() {
             return {
                 isCreating: false,
-                typeForCreating: ''
+                typeForCreating: '',
+                regexpUrl: ''
             };
         },
         methods: {
-            createRoom(type) {
+            createRoom(type, regexp) {
+                this.typeForCreating = type;
+                this.regexpUrl = regexp;
                 this.isCreating = true;
             },
             closeModal() {
                 this.isCreating = false;
             }
         },
-        components: {CreateModal}
+        components: {CreateRoom}
     }
 </script>
 
