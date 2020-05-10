@@ -1,6 +1,6 @@
 <template>
     <div>
-        <youtube-player></youtube-player>
+        <youtube-player v-if="type === 'youtube'" :url="url"></youtube-player>
     </div>
 </template>
 
@@ -8,7 +8,8 @@
     import YoutubePlayer from "./YoutubePlayer";
     export default {
         name: "Player",
-        components: {YoutubePlayer}
+        components: {YoutubePlayer},
+        props: ['type', 'url', 'everyone_control']
     }
 </script>
 

@@ -1,14 +1,17 @@
 <template>
-    <div style="height: 100vh">
-        <youtube :video-id="'dQw4w9WgXcQ'"></youtube>
+    <div>
+        <youtube :video-id="videoId"></youtube>
     </div>
 </template>
 
 <script>
     export default {
         name: "YoutubePlayer",
-        mounted() {
-
+        props: ['url'],
+        computed: {
+            videoId() {
+                return this.$youtube.getIdFromURL(this.url);
+            }
         }
     }
 </script>
