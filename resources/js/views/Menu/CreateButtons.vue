@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="title is-5">Смотреть вместе</h2>
-        <div class="buttons">
+        <div class="buttons" v-if="!hasOwnRoom">
             <b-button type="is-danger"
                       size="is-medium"
                       expanded
@@ -16,6 +16,16 @@
             </b-button>
             <b-button size="is-medium" expanded icon-left="business-time" disabled>
                 Скоро будет ещё
+            </b-button>
+        </div>
+        <div class="buttons" v-else>
+            <b-button type="is-primary"
+                      size="is-medium"
+                      expanded
+                      icon-left="users"
+                      @click="toOwnRoom"
+            >
+                Зайти в свою комнату
             </b-button>
         </div>
         <create-room
@@ -34,6 +44,7 @@
         data() {
             return {
                 isCreating: false,
+                hasOwnRoom: false,
                 typeForCreating: '',
                 regexpUrl: ''
             };
@@ -46,9 +57,16 @@
             },
             closeModal() {
                 this.isCreating = false;
+            },
+            toOwnRoom() {
+                this.$router.push('/room');
             }
         },
-        components: {CreateRoom}
+        components: {CreateRoom},
+        created() {
+            const loadingComponent = this.$buefy.loading.open()
+            axios.get('/room').then(() => {this.hasOwnRoom = true; loadingComponent.close()});
+        }
     }
 </script>
 
