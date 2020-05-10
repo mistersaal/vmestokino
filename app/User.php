@@ -22,6 +22,11 @@ class User extends Authenticatable
         'name', 'vkid', 'img'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     public function room()
     {
         return $this->hasOne(Room::class);
