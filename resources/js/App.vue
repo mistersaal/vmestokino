@@ -38,10 +38,6 @@
                     if (this.$route.path !== '/welcome') {
                         this.$router.replace('/welcome');
                     }
-                } else if (response.data.hasRoom) {
-                    if (this.$route.path !== '/room') {
-                        this.$router.replace('/room');
-                    }
                 }
                 this.isLoading = false;
             });

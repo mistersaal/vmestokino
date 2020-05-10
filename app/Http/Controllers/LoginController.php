@@ -13,19 +13,16 @@ class LoginController extends Controller
         if (auth()->validate()) {
             /** @var User $user */
             $user = auth()->user();
-            $roomExists = $user->room()->exists();
             $vkUsersData->updateUserData($user);
             $user->save();
             return [
                 'newUser' => false,
-                'hasRoom' => $roomExists
             ];
         } else {
             $user = $vkUsersData->getNewUser();
             $user->save();
             return [
                 'newUser' => true,
-                'hasRoom' => false
             ];
         }
     }
