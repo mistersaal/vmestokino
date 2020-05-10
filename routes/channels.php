@@ -1,5 +1,6 @@
 <?php
 
+use App\Room;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('room.player.{roomId}.{password}', function ($user, $roomId, $password) {
-    return \App\Room::findOrFail($roomId)->password === $password;
+Broadcast::channel('room.player.{room}.{password}', function ($user, Room $room, $password) {
+    return $room->password === $password;
 });
