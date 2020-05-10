@@ -10,6 +10,22 @@ use Illuminate\Validation\Rule;
 
 class RoomController extends Controller
 {
+    public function index(int $id = null)
+    {
+        if (!$id) {
+            $room = auth()->user()->room;
+            if (!$room) {
+                return response(['message' => 'Комната еще не создана'], 404);
+            }
+        } else {
+            $room = Room::findOrFail($id);
+            if ($room->password !== request('password')) {
+                return response(['message' => 'Неверный пароль'], 403);
+            }
+        }
+        return $room;
+    }
+
     public function create()
     {
         /** @var User $user */
