@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box">
         <h2 class="title is-5">Смотреть вместе</h2>
         <div class="buttons" v-if="!hasOwnRoom">
             <b-button type="is-danger"

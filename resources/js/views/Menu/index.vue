@@ -1,11 +1,11 @@
 <template>
     <div>
         <name-header></name-header>
-        <div class="section">
+        <div class="section" style="padding: 1.5rem">
             <div class="container">
                 <create-buttons></create-buttons>
-                <connect-buttons style="margin-top: 30px;"></connect-buttons>
-                <info-buttons style="margin-top: 30px;"></info-buttons>
+                <connect-buttons></connect-buttons>
+                <info-buttons></info-buttons>
             </div>
         </div>
     </div>

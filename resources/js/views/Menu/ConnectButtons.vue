@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box">
         <h2 class="title is-5">Присоединиться</h2>
         <div class="buttons">
             <b-button type="is-primary" size="is-medium" expanded icon-left="list-ol">
