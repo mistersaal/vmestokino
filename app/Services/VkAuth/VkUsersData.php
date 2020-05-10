@@ -6,6 +6,7 @@ namespace App\Services\VkAuth;
 
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
+use VK\Client\Enums\VKLanguage;
 use VK\Client\VKApiClient;
 
 class VkUsersData
@@ -14,9 +15,9 @@ class VkUsersData
     private $vkGuard;
     private $token;
 
-    public function __construct(VKApiClient $vkClient, Guard $vkGuard)
+    public function __construct(Guard $vkGuard)
     {
-        $this->vkClient = $vkClient;
+        $this->vkClient = new VKApiClient('5.101', VKLanguage::RUSSIAN);
         $this->vkGuard = $vkGuard;
         $this->token = config('vk.app.token');
     }
