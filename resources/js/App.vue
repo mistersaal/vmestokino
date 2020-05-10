@@ -43,6 +43,14 @@
                     this.$store.commit('createdOwnRoom');
                 }
                 this.isLoading = false;
+            }).catch(error => {
+                this.$buefy.snackbar.open({
+                    duration: 10 * 1000,
+                    message: 'Ошибка аутентификации',
+                    type: 'is-danger',
+                    actionText: null
+                })
+                throw new Error('Ошибка аутентификации');
             });
         }
     }
