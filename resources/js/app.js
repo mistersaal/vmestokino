@@ -8,7 +8,10 @@ const router = new VueRouter({
     routes
 })
 
+import store from "./store";
+
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

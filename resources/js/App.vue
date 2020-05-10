@@ -39,6 +39,9 @@
                         this.$router.replace('/welcome');
                     }
                 }
+                if (response.data.hasRoom) {
+                    this.$store.commit('createdOwnRoom');
+                }
                 this.isLoading = false;
             });
         }

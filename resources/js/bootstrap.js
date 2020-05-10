@@ -44,3 +44,7 @@ window.bridge = bridge;
 
 import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.use(VueYouTubeEmbed)
+
+import Vuex from 'vuex'
+window.Vuex = Vuex;
+Vue.use(Vuex)

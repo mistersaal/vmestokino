@@ -44,7 +44,6 @@
         data() {
             return {
                 isCreating: false,
-                hasOwnRoom: false,
                 typeForCreating: '',
                 regexpUrl: ''
             };
@@ -63,9 +62,10 @@
             }
         },
         components: {CreateRoom},
-        created() {
-            const loadingComponent = this.$buefy.loading.open()
-            axios.get('/room').then(() => {this.hasOwnRoom = true; loadingComponent.close()});
+        computed: {
+            hasOwnRoom() {
+                return this.$store.state.hasOwnRoom;
+            }
         }
     }
 </script>

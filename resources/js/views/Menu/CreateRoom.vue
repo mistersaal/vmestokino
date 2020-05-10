@@ -63,6 +63,7 @@
                     everyone_control: this.everyone_control,
                     type: this.typeForCreating
                 }).then(response => {
+                    this.$store.commit('createdOwnRoom');
                     this.$router.push('/room');
                 }).catch(error => {
                     this.$buefy.snackbar.open({
