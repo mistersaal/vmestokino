@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('room.player.{roomId}.{password}', function ($user, $roomId, $password) {
+    return \App\Room::findOrFail($roomId)->password === $password;
 });
