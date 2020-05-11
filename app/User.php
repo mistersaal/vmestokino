@@ -37,9 +37,14 @@ class User extends Authenticatable
         if ($room->everyone_control) {
             return true;
         } else {
-            if ($room->user_id === $this->id) {
-                return true;
-            }
+            return $this->isAdminInRoom($room);
+        }
+    }
+
+    public function isAdminInRoom(Room $room)
+    {
+        if ($room->user_id === $this->id) {
+            return true;
         }
         return false;
     }

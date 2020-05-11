@@ -24,6 +24,7 @@ class RoomController extends Controller
             }
         }
         $room->currentUserCanControl = auth()->user()->hasAccessToControlPlayer($room);
+        $room->isAdmin = auth()->user()->isAdminInRoom($room);
         return $room;
     }
 
