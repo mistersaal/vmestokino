@@ -5,6 +5,7 @@
                 :everyone_control="room.everyone_control"
                 :id="id"
                 :password="password"
+                :can-control="canControl"
                 v-if="isReady"
         ></player>
         <section class="section" style="padding: 1.5rem">
@@ -22,6 +23,8 @@
             return {
                 id: 0,
                 password: '',
+                canControl: false,
+                isAdmin: false,
                 room: {
                     title: ''
                 }
@@ -46,6 +49,8 @@
                         this.id = this.room.id;
                         this.password = this.room.password;
                     }
+                    this.canControl = this.room.currentUserCanControl;
+                    this.isAdmin = this.room.isAdmin;
                 })
                 .catch(error => {
                     let message = 'Произошла ошибка.';

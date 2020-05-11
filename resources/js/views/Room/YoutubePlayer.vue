@@ -1,6 +1,10 @@
 <template>
     <div>
-        <youtube :video-id="videoId"></youtube>
+        <youtube
+            :video-id="videoId"
+            ref="player"
+            @playing="$emit('start')"
+        ></youtube>
     </div>
 </template>
 
@@ -11,8 +15,16 @@
         computed: {
             videoId() {
                 return this.$youtube.getIdFromURL(this.url);
+            },
+            player() {
+                return this.$refs.player.player;
             }
-        }
+        },
+        methods: {
+            play() {
+                this.player.playVideo();
+            },
+        },
     }
 </script>
 

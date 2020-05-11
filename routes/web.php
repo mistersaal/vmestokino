@@ -22,4 +22,6 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::middleware('auth.vk')->group(function () {
     Route::get('/room/{id?}', 'RoomController@index')->name('room');
     Route::post('/room', 'RoomController@create')->name('room.create');
+
+    Route::post('/room/{id}/start', 'PlayerController@start')->name('room.event.start');
 });
