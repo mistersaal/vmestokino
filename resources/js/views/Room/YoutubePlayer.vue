@@ -5,6 +5,7 @@
             ref="player"
             @playing="$emit('start')"
             @buffering="$emit('buffering')"
+            @paused="$emit('stop')"
         ></youtube>
     </div>
 </template>
@@ -24,6 +25,9 @@
         methods: {
             play() {
                 this.player.playVideo();
+            },
+            stop() {
+                this.player.pauseVideo();
             },
             seekTo(currentTime) {
                 this.player.seekTo(currentTime);

@@ -24,5 +24,6 @@ Route::middleware('auth.vk')->group(function () {
     Route::post('/room', 'RoomController@create')->name('room.create');
 
     Route::post('/room/{id}/start', 'PlayerController@start')->name('room.event.start');
-    Route::post('/room/{id}/buffering', 'PlayerController@buffering')->name('room.event.start');
+    Route::post('/room/{id}/buffering', 'PlayerController@buffering')->name('room.event.buffering');
+    Route::post('/room/{id}/stop', 'PlayerController@stop')->name('room.event.stop');
 });

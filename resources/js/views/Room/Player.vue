@@ -6,6 +6,7 @@
             ref="youtube"
             @start="onStart"
             @buffering="onBuffering"
+            @stop="onStop"
         ></youtube-player>
     </div>
 </template>
@@ -19,7 +20,8 @@
         created() {
             Echo.join('room.player.' + this.id + '.' + this.password)
                 .listen('PlayerStart', (e) => {this.start(e.currentTime)})
-                .listen('PlayerBuffering', (e) => {this.start(e.currentTime)});
+                .listen('PlayerBuffering', (e) => {this.start(e.currentTime)})
+                .listen('PlayerStop', (e) => {this.stop()});
         },
         computed: {
             player() {
@@ -44,6 +46,16 @@
                     axios.post('/room/' + this.id + '/buffering', {
                         password: this.password,
                         currentTime: this.player.getCurrentTime()
+                    });
+                }
+            },
+            stop() {
+                this.player.stop();
+            },
+            onStop() {
+                if (this.canControl) {
+                    axios.post('/room/' + this.id + '/stop', {
+                        password: this.password
                     });
                 }
             }
