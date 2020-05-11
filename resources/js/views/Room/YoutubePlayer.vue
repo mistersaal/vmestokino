@@ -4,6 +4,7 @@
             :video-id="videoId"
             ref="player"
             @playing="$emit('start')"
+            @buffering="$emit('buffering')"
         ></youtube>
     </div>
 </template>
@@ -24,6 +25,12 @@
             play() {
                 this.player.playVideo();
             },
+            seekTo(currentTime) {
+                this.player.seekTo(currentTime);
+            },
+            getCurrentTime() {
+                return this.player.getCurrentTime();
+            }
         },
     }
 </script>
