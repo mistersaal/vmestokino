@@ -23,6 +23,7 @@ class RoomController extends Controller
                 return response(['message' => 'Неверный пароль'], 403);
             }
         }
+        $room->currentUserCanControl = auth()->user()->hasAccessToControlPlayer($room);
         return $room;
     }
 

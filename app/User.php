@@ -31,4 +31,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(Room::class);
     }
+
+    public function hasAccessToControlPlayer(Room $room)
+    {
+        if ($room->everyone_control) {
+            return true;
+        } else {
+            if ($room->user_id === $this->id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
