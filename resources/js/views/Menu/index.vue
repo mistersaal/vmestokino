@@ -1,7 +1,7 @@
 <template>
     <div>
         <name-header></name-header>
-        <div class="section" style="padding: 1.5rem">
+        <div class="section" style="padding: 1.25rem">
             <div class="container">
                 <create-buttons></create-buttons>
                 <connect-buttons></connect-buttons>

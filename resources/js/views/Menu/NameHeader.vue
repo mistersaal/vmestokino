@@ -1,5 +1,5 @@
 <template>
-    <b-navbar :mobile-burger="false">
+    <b-navbar :mobile-burger="false" shadow>
         <template slot="brand">
             <b-navbar-item
                 tag="h1"
