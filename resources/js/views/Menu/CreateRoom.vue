@@ -28,7 +28,7 @@
                             required>
                         </b-input>
                     </b-field>
-                    <b-checkbox v-model="everyone_control">
+                    <b-checkbox v-model="only_admin_control">
                         Видео управляет только создатель комнаты
                     </b-checkbox>
                 </section>
@@ -49,7 +49,7 @@
             return {
                 title: '',
                 url: '',
-                everyone_control: false,
+                only_admin_control: true,
             };
         },
         methods: {
@@ -60,7 +60,7 @@
                 axios.post('/room', {
                     title: this.title,
                     url: this.url,
-                    everyone_control: this.everyone_control,
+                    everyone_control: !this.only_admin_control,
                     type: this.typeForCreating
                 }).then(response => {
                     this.$store.commit('createdOwnRoom');
