@@ -30,7 +30,7 @@
         },
         methods: {
             start(currentTime) {
-                this.player.seekTo(currentTime + 1);
+                this.player.seekTo(currentTime);
                 this.player.play();
             },
             onStart() {
