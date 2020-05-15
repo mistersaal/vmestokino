@@ -1,5 +1,5 @@
 <template>
-    <b-navbar :mobile-burger="false" shadow>
+    <b-navbar :mobile-burger="false">
         <template slot="brand">
             <b-navbar-item @click="back" class="hoverable">
                 <b-icon icon="arrow-left" class="has-text-primary"></b-icon>
