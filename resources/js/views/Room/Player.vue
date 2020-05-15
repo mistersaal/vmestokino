@@ -28,21 +28,29 @@
                 return this.$refs[this.type];
             }
         },
+        data() {
+            return {
+                anotherControlStart: false,
+                anotherControlStop: false,
+            };
+        },
         methods: {
             start(currentTime) {
+                this.anotherControlStart = true;
                 this.player.seekTo(currentTime);
                 this.player.play();
             },
             onStart() {
-                if (this.canControl) {
+                if (this.canControl && !this.anotherControlStart) {
                     axios.post('/room/' + this.id + '/start', {
                         password: this.password,
                         currentTime: this.player.getCurrentTime()
                     });
                 }
+                this.anotherControlStart = false;
             },
             onBuffering() {
-                if (this.canControl) {
+                if (this.canControl && !this.anotherControlStart) {
                     axios.post('/room/' + this.id + '/buffering', {
                         password: this.password,
                         currentTime: this.player.getCurrentTime()
@@ -50,14 +58,16 @@
                 }
             },
             stop() {
+                this.anotherControlStop = true;
                 this.player.stop();
             },
             onStop() {
-                if (this.canControl) {
+                if (this.canControl && !this.anotherControlStop) {
                     axios.post('/room/' + this.id + '/stop', {
                         password: this.password
                     });
                 }
+                this.anotherControlStop = false;
             }
         },
     }
