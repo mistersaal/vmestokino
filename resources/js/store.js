@@ -1,6 +1,7 @@
 export default new Vuex.Store({
     state: {
-        hasOwnRoom: false
+        hasOwnRoom: false,
+        historyIsEmpty: 2,
     },
     mutations: {
         createdOwnRoom(state) {
@@ -8,6 +9,9 @@ export default new Vuex.Store({
         },
         deletedOwnRoom(state) {
             state.hasOwnRoom = false;
+        },
+        historyPushed(state) {
+            state.historyIsEmpty -= 1;
         }
     }
 })

@@ -6,7 +6,7 @@
                 class="title is-4 has-text-primary has-text-weight-bold"
                 style="cursor: default"
             >
-                Vmestokino.ml
+                Вместо кино
             </b-navbar-item>
         </template>
     </b-navbar>

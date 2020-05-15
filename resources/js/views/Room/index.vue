@@ -1,5 +1,6 @@
 <template>
     <div>
+        <nav-menu></nav-menu>
         <player :type="room.type"
                 :url="room.url"
                 :everyone_control="room.everyone_control"
@@ -15,10 +16,11 @@
 </template>
 
 <script>
+    import NavMenu from "./NavMenu";
     import Player from "./Player";
     export default {
         name: "Room",
-        components: {Player},
+        components: {Player, NavMenu},
         data() {
             return {
                 id: 0,

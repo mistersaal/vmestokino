@@ -8,11 +8,12 @@ import {
     faListOl,
     faLink,
     faQuestionCircle,
-    faUsers
+    faUsers,
+    faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faCheck, faCheckCircle, faInfoCircle, faExclamationTriangle, faExclamationCircle,
     faArrowUp, faAngleRight, faAngleLeft, faAngleDown,
     faEye, faEyeSlash, faCaretDown, faCaretUp, faUpload);
-library.add(faYoutube, faBusinessTime, faListOl, faLink, faQuestionCircle, faUsers);
+library.add(faYoutube, faBusinessTime, faListOl, faLink, faQuestionCircle, faUsers, faArrowLeft);
