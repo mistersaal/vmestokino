@@ -42,6 +42,18 @@ class RoomController extends Controller
         return response(['message' => 'Комната создана'], 200);
     }
 
+    public function delete()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        $room = $user->room;
+        if (!$room) {
+            return response(['message' => 'Комнаты не существует'], 404);
+        }
+        $room->delete();
+        return response(['message' => 'Комната удалена'], 200);
+    }
+
     private function getValidDataForCreating()
     {
         $room = new Room();

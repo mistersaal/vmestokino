@@ -13,6 +13,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string name
  * @property string vkid
  * @property string img
+ * @property Room room
  */
 class User extends Authenticatable
 {
