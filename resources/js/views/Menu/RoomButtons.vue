@@ -1,6 +1,7 @@
 <template>
     <div class="box">
-        <h2 class="title is-5">Создать комнату</h2>
+        <h2 class="title is-5" v-if="!hasOwnRoom">Создать комнату</h2>
+        <h2 class="title is-5" v-else>Своя комната</h2>
         <div class="buttons" v-if="!hasOwnRoom">
             <b-button type="is-danger"
                       size="is-medium"
@@ -27,6 +28,14 @@
             >
                 Зайти в свою комнату
             </b-button>
+            <b-button type="is-light"
+                      size="is-medium"
+                      expanded
+                      icon-left="trash-alt"
+                      @click="deleteRoom"
+            >
+                Удалить комнату
+            </b-button>
         </div>
         <create-room
             :is-creating="isCreating"
@@ -40,7 +49,7 @@
 <script>
     import CreateRoom from "./CreateRoom";
     export default {
-        name: "CreateButtons",
+        name: "RoomButtons",
         data() {
             return {
                 isCreating: false,
@@ -53,6 +62,24 @@
                 this.typeForCreating = type;
                 this.regexpUrl = regexp;
                 this.isCreating = true;
+            },
+            deleteRoom() {
+                axios.delete('/room').then((r) => {
+                    this.$store.commit('deletedOwnRoom');
+                    this.$buefy.snackbar.open({
+                        message: r.data.message,
+                        actionText: null,
+                        position: 'is-top',
+                        queue: false
+                    })
+                }).catch((e) => {
+                    this.$buefy.snackbar.open({
+                        message: e.response.data.message,
+                        actionText: null,
+                        position: 'is-top',
+                        queue: false
+                    })
+                });
             },
             closeModal() {
                 this.isCreating = false;

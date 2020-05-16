@@ -47,3 +47,10 @@ Vue.use(VueYouTubeEmbed)
 import Vuex from 'vuex'
 window.Vuex = Vuex;
 Vue.use(Vuex)
+
+document.addEventListener('invalid', (function(){
+    return function(e) {
+        //prevent the browser from showing default error bubble / hint
+        e.preventDefault();
+    };
+})(), true);

@@ -3,7 +3,7 @@
         <name-header></name-header>
         <div class="section" style="padding: 1.25rem">
             <div class="container">
-                <create-buttons></create-buttons>
+                <room-buttons></room-buttons>
                 <connect-buttons></connect-buttons>
                 <info-buttons></info-buttons>
             </div>
@@ -13,14 +13,14 @@
 
 <script>
     import NameHeader from "./NameHeader";
-    import CreateButtons from "./CreateButtons";
+    import RoomButtons from "./RoomButtons";
     import ConnectButtons from "./ConnectButtons";
     import InfoButtons from "./InfoButtons";
     export default {
         name: "Menu",
         components: {
             NameHeader,
-            CreateButtons,
+            RoomButtons,
             ConnectButtons,
             InfoButtons
         }
