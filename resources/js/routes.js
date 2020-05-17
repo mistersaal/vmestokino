@@ -18,5 +18,19 @@ export default [
     {
         path: '/room/:id',
         component: Room
+    },
+    {
+        path: '/*',
+        redirect: to => {
+            if (/\/[0-9]+_.{8}/.test(to.fullPath)) {
+                return {
+                    path: '/room' + to.fullPath.split('_')[0],
+                    query: {
+                        password: to.fullPath.split('_')[1]
+                    }
+                }
+            }
+            return '/';
+        }
     }
 ];
