@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int id
  * @property string password
  * @property User user
- * @property string title
  * @property bool everyone_control
  * @property string url
  * @property string type
@@ -23,7 +22,6 @@ class Room extends Model
     ];
     protected $fillable = [
         'password',
-        'title',
         'everyone_control',
         'url',
         'type'

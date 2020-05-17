@@ -58,7 +58,6 @@ class RoomController extends Controller
     {
         $room = new Room();
         return request()->validate([
-            'title' => 'required|string|max:100',
             'everyone_control' => 'required|boolean',
             'type' => [
                 'required',

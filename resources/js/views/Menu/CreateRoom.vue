@@ -12,14 +12,6 @@
                     <p class="modal-card-title has-text-weight-bold has-text-primary">Создать комнату</p>
                 </header>
                 <section class="modal-card-body">
-                    <b-field label="Название">
-                        <b-input
-                            placeholder="Название комнаты"
-                            v-model="title"
-                            maxlength="100"
-                            required>
-                        </b-input>
-                    </b-field>
                     <b-field label="Ссылка на видео/фильм">
                         <b-input
                             placeholder="Ссылка"
@@ -49,7 +41,6 @@
         props: ['isCreating', 'typeForCreating', 'regexpUrl'],
         data() {
             return {
-                title: '',
                 url: '',
                 only_admin_control: true,
             };
@@ -60,7 +51,6 @@
             },
             create() {
                 let room = {
-                    title: this.title,
                     url: this.url,
                     everyone_control: !this.only_admin_control,
                     type: this.typeForCreating

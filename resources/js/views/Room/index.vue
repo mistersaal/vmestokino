@@ -9,9 +9,6 @@
                 :can-control="canControl"
                 v-if="isReady"
         ></player>
-        <section class="section" style="padding: 1.5rem">
-            <h1 class="title is-4">{{ room.title }}</h1>
-        </section>
     </div>
 </template>
 
@@ -27,9 +24,7 @@
                 password: '',
                 canControl: false,
                 isAdmin: false,
-                room: {
-                    title: ''
-                }
+                room: {}
             };
         },
         computed: {
