@@ -39,8 +39,8 @@
                         this.$router.replace('/welcome');
                     }
                 }
-                if (response.data.hasRoom) {
-                    this.$store.commit('createdOwnRoom');
+                if (response.data.room) {
+                    this.$store.commit('createdOwnRoom', response.data.room);
                 }
                 this.isLoading = false;
             }).catch(error => {

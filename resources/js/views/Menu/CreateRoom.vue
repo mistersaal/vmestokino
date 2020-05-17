@@ -16,6 +16,7 @@
                         <b-input
                             placeholder="Название комнаты"
                             v-model="title"
+                            maxlength="100"
                             required>
                         </b-input>
                     </b-field>
@@ -25,6 +26,7 @@
                             :pattern="regexpUrl"
                             validation-message="Неверная ссылка"
                             v-model="url"
+                            maxlength="1000"
                             required>
                         </b-input>
                     </b-field>
@@ -57,13 +59,14 @@
                 this.$emit('close');
             },
             create() {
-                axios.post('/room', {
+                let room = {
                     title: this.title,
                     url: this.url,
                     everyone_control: !this.only_admin_control,
                     type: this.typeForCreating
-                }).then(response => {
-                    this.$store.commit('createdOwnRoom');
+                };
+                axios.post('/room', room).then(response => {
+                    this.$store.commit('createdOwnRoom', room);
                     this.$router.push('/room');
                 }).catch(error => {
                     this.$buefy.snackbar.open({

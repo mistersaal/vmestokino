@@ -1,14 +1,14 @@
 export default new Vuex.Store({
     state: {
-        hasOwnRoom: false,
+        ownRoom: null,
         historyIsEmpty: 2,
     },
     mutations: {
-        createdOwnRoom(state) {
-            state.hasOwnRoom = true;
+        createdOwnRoom(state, payload) {
+            state.ownRoom = payload;
         },
         deletedOwnRoom(state) {
-            state.hasOwnRoom = false;
+            state.ownRoom = null;
         },
         historyPushed(state) {
             state.historyIsEmpty -= 1;

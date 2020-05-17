@@ -1,28 +1,37 @@
 <template>
     <div class="box">
-        <h2 class="title is-5" v-if="!hasOwnRoom">Создать комнату</h2>
+        <h2 class="title is-5" v-if="!ownRoom">Создать комнату</h2>
         <h2 class="title is-5" v-else>Своя комната</h2>
-        <div class="buttons" v-if="!hasOwnRoom">
-            <b-button type="is-danger"
+        <create-room
+            :is-creating="isCreating"
+            :type-for-creating="typeForCreating"
+            :regexp-url="regexpUrl"
+            @close="closeModal"
+        ></create-room>
+        <div class="buttons" v-if="!ownRoom">
+            <b-button v-for="(button, type) in types" :key="button.id"
+                      type="is-primary"
+                      :style="{'background-color': button.color}"
                       size="is-medium"
                       expanded
-                      icon-left="youtube"
-                      icon-pack="fab"
+                      :icon-left="button.icon"
+                      :icon-pack="button.iconType"
                       @click="createRoom(
-                          'youtube',
-                          '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+'
+                          type,
+                          button.regExp
                       )"
             >
-                YouTube
+                {{ button.name }}
             </b-button>
             <b-button size="is-medium" expanded icon-left="business-time" disabled>
                 Скоро будет ещё
             </b-button>
         </div>
         <div class="buttons" v-else>
-            <b-button type="is-primary"
-                      size="is-medium"
+            <b-button size="is-medium"
+                      type="is-primary"
                       expanded
+                      :style="{'background-color': types[ownRoom.type].color}"
                       icon-left="users"
                       @click="toOwnRoom"
             >
@@ -37,12 +46,6 @@
                 Удалить комнату
             </b-button>
         </div>
-        <create-room
-            :is-creating="isCreating"
-            :type-for-creating="typeForCreating"
-            :regexp-url="regexpUrl"
-            @close="closeModal"
-        ></create-room>
     </div>
 </template>
 
@@ -54,7 +57,17 @@
             return {
                 isCreating: false,
                 typeForCreating: '',
-                regexpUrl: ''
+                regexpUrl: '',
+                types: {
+                    youtube: {
+                        id: 1,
+                        color: '#ff3860',
+                        icon: 'youtube',
+                        iconType: 'fab',
+                        regExp: '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+',
+                        name: 'YouTube'
+                    }
+                },
             };
         },
         methods: {
@@ -90,8 +103,8 @@
         },
         components: {CreateRoom},
         computed: {
-            hasOwnRoom() {
-                return this.$store.state.hasOwnRoom;
+            ownRoom() {
+                return this.$store.state.ownRoom;
             }
         }
     }
