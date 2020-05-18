@@ -29,7 +29,7 @@
         },
         computed: {
             isReady() {
-                return this.id !== 0;
+                return !_.isEmpty(this.room);
             }
         },
         created() {
