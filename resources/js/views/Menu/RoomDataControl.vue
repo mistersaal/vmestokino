@@ -103,8 +103,7 @@
                 if (!this.initRoom) {
                     axios.post('/room', this.room).then(response => {
                         this.$store.commit('createdOwnRoom', this.room);
-                        this.close();
-                        this.$router.push('/room');
+                        this.$router.replace('/room');
                     }).catch(error => {
                         this.$buefy.snackbar.open({
                             message: error.response.data.message,
