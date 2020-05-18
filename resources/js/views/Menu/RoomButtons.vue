@@ -10,8 +10,7 @@
         ></create-room>
         <div class="buttons" v-if="!ownRoom">
             <b-button v-for="(button, type) in types" :key="button.id"
-                      type="is-primary"
-                      :style="{'background-color': button.color}"
+                      :type="button.color"
                       size="is-medium"
                       expanded
                       :icon-left="button.icon"
@@ -29,9 +28,8 @@
         </div>
         <div class="buttons" v-else>
             <b-button size="is-medium"
-                      type="is-primary"
+                      :type="types[ownRoom.type].color"
                       expanded
-                      :style="{'background-color': types[ownRoom.type].color}"
                       icon-left="users"
                       @click="toOwnRoom"
             >
@@ -61,7 +59,7 @@
                 types: {
                     youtube: {
                         id: 1,
-                        color: '#ff3860',
+                        color: 'is-danger',
                         icon: 'youtube',
                         iconType: 'fab',
                         regExp: '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+',
