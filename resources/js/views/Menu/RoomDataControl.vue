@@ -56,14 +56,14 @@
 <script>
     export default {
         name: "RoomDataControl",
-        props: ['isOpen', 'initRoom', 'types', 'defaultType'],
+        props: ['initRoom', 'types', 'defaultType'],
         data() {
             return {
                 room: this.initRoom ? _.clone(this.initRoom) : {
                     url: '',
                     everyone_control: false,
                     type: this.defaultType ?? 'youtube'
-                }
+                },
             };
         },
         watch: {
@@ -90,16 +90,20 @@
         computed: {
             isNotEdited() {
                 return _.isEqual(this.room, this.initRoom) || this.room.url === '';
+            },
+            isOpen() {
+                return this.$route.hash === '#update' || this.$route.hash === '#create';
             }
         },
         methods: {
             close() {
-                this.$emit('update:isOpen', false);
+                this.$router.back();
             },
             createOrUpdate() {
                 if (!this.initRoom) {
                     axios.post('/room', this.room).then(response => {
                         this.$store.commit('createdOwnRoom', this.room);
+                        this.close();
                         this.$router.push('/room');
                     }).catch(error => {
                         this.$buefy.snackbar.open({

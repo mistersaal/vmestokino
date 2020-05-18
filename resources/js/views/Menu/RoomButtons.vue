@@ -3,7 +3,6 @@
         <h2 class="title is-5" v-if="!ownRoom">Создать комнату</h2>
         <h2 class="title is-5" v-else>Своя комната</h2>
         <room-data-control
-            :is-open.sync="roomPropertiesIsOpen"
             :init-room="ownRoom"
             :default-type="defaultType"
             :types="types"
@@ -58,7 +57,6 @@
         name: "RoomButtons",
         data() {
             return {
-                roomPropertiesIsOpen: false,
                 defaultType: 'youtube',
                 types: {
                     youtube: {
@@ -75,10 +73,10 @@
         methods: {
             createRoom(type) {
                 this.defaultType = type;
-                this.roomPropertiesIsOpen = true;
+                this.$router.push(this.$route.fullPath + '#create');
             },
             updateRoom() {
-                this.roomPropertiesIsOpen = true;
+                this.$router.push(this.$route.fullPath + '#update');
             },
             deleteRoom() {
                 axios.delete('/room').then((r) => {
