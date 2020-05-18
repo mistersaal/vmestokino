@@ -2,12 +2,12 @@
     <div class="box">
         <h2 class="title is-5" v-if="!ownRoom">Создать комнату</h2>
         <h2 class="title is-5" v-else>Своя комната</h2>
-        <create-room
-            :is-creating="isCreating"
-            :type-for-creating="typeForCreating"
-            :regexp-url="regexpUrl"
-            @close="closeModal"
-        ></create-room>
+        <room-data-control
+            :is-open.sync="roomPropertiesIsOpen"
+            :init-room="ownRoom"
+            :default-type="defaultType"
+            :types="types"
+        ></room-data-control>
         <div class="buttons" v-if="!ownRoom">
             <b-button v-for="(button, type) in types" :key="button.id"
                       :type="button.color"
@@ -15,10 +15,7 @@
                       expanded
                       :icon-left="button.icon"
                       :icon-pack="button.iconType"
-                      @click="createRoom(
-                          type,
-                          button.regExp
-                      )"
+                      @click="createRoom(type)"
             >
                 {{ button.name }}
             </b-button>
@@ -38,6 +35,14 @@
             <b-button type="is-light"
                       size="is-medium"
                       expanded
+                      icon-left="edit"
+                      @click="updateRoom"
+            >
+                Редактировать комнату
+            </b-button>
+            <b-button type="is-light"
+                      size="is-medium"
+                      expanded
                       icon-left="trash-alt"
                       @click="deleteRoom"
             >
@@ -48,14 +53,13 @@
 </template>
 
 <script>
-    import CreateRoom from "./CreateRoom";
+    import RoomDataControl from "./RoomDataControl";
     export default {
         name: "RoomButtons",
         data() {
             return {
-                isCreating: false,
-                typeForCreating: '',
-                regexpUrl: '',
+                roomPropertiesIsOpen: false,
+                defaultType: 'youtube',
                 types: {
                     youtube: {
                         id: 1,
@@ -69,10 +73,12 @@
             };
         },
         methods: {
-            createRoom(type, regexp) {
-                this.typeForCreating = type;
-                this.regexpUrl = regexp;
-                this.isCreating = true;
+            createRoom(type) {
+                this.defaultType = type;
+                this.roomPropertiesIsOpen = true;
+            },
+            updateRoom() {
+                this.roomPropertiesIsOpen = true;
             },
             deleteRoom() {
                 axios.delete('/room').then((r) => {
@@ -92,14 +98,11 @@
                     })
                 });
             },
-            closeModal() {
-                this.isCreating = false;
-            },
             toOwnRoom() {
                 this.$router.push('/room');
             }
         },
-        components: {CreateRoom},
+        components: {RoomDataControl},
         computed: {
             ownRoom() {
                 return this.$store.state.ownRoom;

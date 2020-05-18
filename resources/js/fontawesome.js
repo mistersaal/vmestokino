@@ -23,7 +23,8 @@ import {
     faQuestionCircle,
     faUsers,
     faArrowLeft,
-    faTrashAlt
+    faTrashAlt,
+    faEdit
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -51,5 +52,6 @@ library.add(
     faQuestionCircle,
     faUsers,
     faArrowLeft,
-    faTrashAlt
+    faTrashAlt,
+    faEdit
 );

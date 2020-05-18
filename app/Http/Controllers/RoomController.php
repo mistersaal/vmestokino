@@ -35,11 +35,24 @@ class RoomController extends Controller
         if ($user->room()->exists()) {
             return response(['message' => 'Комната уже существует'], 409);
         }
-        $data = $this->getValidDataForCreating();
+        $data = $this->getValidData();
         $data['password'] = Str::random(8);
 
         $user->room()->create($data);
         return response(['message' => 'Комната создана'], 200);
+    }
+
+    public function update()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        if (!$user->room()->exists()) {
+            return response(['message' => 'Комната не существует'], 404);
+        }
+
+        $data = $this->getValidData();
+        $user->room()->update($data);
+        return response(['message' => 'Комната отредактирована'], 200);
     }
 
     public function delete()
@@ -54,7 +67,7 @@ class RoomController extends Controller
         return response(['message' => 'Комната удалена'], 200);
     }
 
-    private function getValidDataForCreating()
+    private function getValidData()
     {
         $room = new Room();
         return request()->validate([
