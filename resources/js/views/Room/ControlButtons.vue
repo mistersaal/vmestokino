@@ -4,11 +4,13 @@
             <room-data-control
                 :init-room="room"
                 :types="$store.state.types"
+                v-if="isAdmin"
             ></room-data-control>
             <div class="buttons is-right">
                 <b-button
                     @click="update"
                     icon-left="edit"
+                    v-if="isAdmin"
                 >Редактировать</b-button>
             </div>
         </div>
@@ -20,7 +22,7 @@
     export default {
         name: "ControlButtons",
         components: {RoomDataControl},
-        props: ['room'],
+        props: ['room', 'isAdmin'],
         methods: {
             update() {
                 this.$router.push(this.$route.fullPath + '#update');

@@ -10,7 +10,7 @@
                 :can-control="canControl"
                 v-if="isReady"
         ></player>
-        <control-buttons :room="room" v-if="isReady"></control-buttons>
+        <control-buttons :room="room" v-if="isReady" :is-admin="isAdmin"></control-buttons>
     </div>
 </template>
 
