@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\RoomDeleted;
+use App\Events\RoomUpdated;
 use App\Room;
 use App\User;
 use Illuminate\Http\Request;
@@ -52,6 +54,8 @@ class RoomController extends Controller
 
         $data = $this->getValidData();
         $user->room()->update($data);
+        $room = $user->room;
+        broadcast(new RoomUpdated($room->id, $room->password, $room));
         return response(['message' => 'Комната отредактирована'], 200);
     }
 
@@ -63,7 +67,10 @@ class RoomController extends Controller
         if (!$room) {
             return response(['message' => 'Комнаты не существует'], 404);
         }
+        $id = $room->id;
+        $password = $room->password;
         $room->delete();
+        broadcast(new RoomDeleted($id, $password));
         return response(['message' => 'Комната удалена'], 200);
     }
 

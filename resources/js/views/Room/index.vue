@@ -36,6 +36,20 @@
             }
         },
         methods: {
+            setListeners() {
+                Echo.join('room.player.' + this.id + '.' + this.password)
+                    .listen('RoomUpdated', (e) => {this.room = e.room})
+                    .listen('RoomDeleted', () => {
+                        Echo.leave('room.player.' + this.id + '.' + this.password);
+                        this.$buefy.snackbar.open({
+                            duration: 5 * 1000,
+                            message: 'Комната была удалена',
+                            actionText: null,
+                            position: 'is-top'
+                        })
+                        this.$router.replace('/');
+                    });
+            },
             setRoomData() {
                 this.id = this.$route.params['id'] ?? 0;
                 this.password = this.$route.query['password'] ?? '';
@@ -52,6 +66,7 @@
                         }
                         this.canControl = this.room.currentUserCanControl;
                         this.isAdmin = this.room.isAdmin;
+                        this.setListeners();
                     })
                     .catch(error => {
                         let message = 'Произошла ошибка.';
