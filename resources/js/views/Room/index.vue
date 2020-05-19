@@ -1,5 +1,6 @@
 <template>
     <div>
+        <b-loading :is-full-page="true" :active="!isReady"></b-loading>
         <nav-menu></nav-menu>
         <player :type="room.type"
                 :url="room.url"
@@ -9,15 +10,17 @@
                 :can-control="canControl"
                 v-if="isReady"
         ></player>
+        <control-buttons :room="room" v-if="isReady"></control-buttons>
     </div>
 </template>
 
 <script>
     import NavMenu from "./NavMenu";
     import Player from "./Player";
+    import ControlButtons from "./ControlButtons";
     export default {
         name: "Room",
-        components: {Player, NavMenu},
+        components: {ControlButtons, Player, NavMenu},
         data() {
             return {
                 id: 0,
@@ -32,38 +35,43 @@
                 return !_.isEmpty(this.room);
             }
         },
-        created() {
-            this.id = this.$route.params['id'] ?? 0;
-            this.password = this.$route.query['password'] ?? '';
-            let path = '/room';
-            if (this.id !== 0) {
-                path += '/' + this.id + '?password=' + this.password;
-            }
-            axios.get(path)
-                .then(response => {
-                    this.room = response.data
-                    if (this.id === 0) {
-                        this.id = this.room.id;
-                        this.password = this.room.password;
-                    }
-                    this.canControl = this.room.currentUserCanControl;
-                    this.isAdmin = this.room.isAdmin;
-                })
-                .catch(error => {
-                    let message = 'Произошла ошибка.';
-                    if (error.response.status === 404) {
-                        message = 'Комната не найдена.';
-                    } else if (error.response.status === 403) {
-                        message = 'Неверный пароль.';
-                    }
-                    this.$buefy.snackbar.open({
-                        duration: 5 * 1000,
-                        message: message,
-                        actionText: null,
-                        position: 'is-top'
+        methods: {
+            setRoomData() {
+                this.id = this.$route.params['id'] ?? 0;
+                this.password = this.$route.query['password'] ?? '';
+                let path = '/room';
+                if (this.id !== 0) {
+                    path += '/' + this.id + '?password=' + this.password;
+                }
+                axios.get(path)
+                    .then(response => {
+                        this.room = response.data
+                        if (this.id === 0) {
+                            this.id = this.room.id;
+                            this.password = this.room.password;
+                        }
+                        this.canControl = this.room.currentUserCanControl;
+                        this.isAdmin = this.room.isAdmin;
                     })
-                    this.$router.replace('/');
-                });
+                    .catch(error => {
+                        let message = 'Произошла ошибка.';
+                        if (error.response.status === 404) {
+                            message = 'Комната не найдена.';
+                        } else if (error.response.status === 403) {
+                            message = 'Неверный пароль.';
+                        }
+                        this.$buefy.snackbar.open({
+                            duration: 5 * 1000,
+                            message: message,
+                            actionText: null,
+                            position: 'is-top'
+                        })
+                        this.$router.replace('/');
+                    });
+            }
+        },
+        created() {
+            this.setRoomData();
         }
     }
 </script>

@@ -52,22 +52,13 @@
 </template>
 
 <script>
-    import RoomDataControl from "./RoomDataControl";
+    import RoomDataControl from "../../components/RoomDataControl";
     export default {
         name: "RoomButtons",
         data() {
             return {
                 defaultType: 'youtube',
-                types: {
-                    youtube: {
-                        id: 1,
-                        color: 'is-danger',
-                        icon: 'youtube',
-                        iconType: 'fab',
-                        regExp: '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+',
-                        name: 'YouTube'
-                    }
-                },
+                types: this.$store.state.types,
             };
         },
         methods: {

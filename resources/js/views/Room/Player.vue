@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="line-height: 0">
         <youtube-player
             v-if="type === 'youtube'"
             :url="url"
