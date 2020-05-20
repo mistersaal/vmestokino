@@ -2,13 +2,12 @@
     <b-modal :active="isOpen"
              has-modal-card
              trap-focus
-             :destroy-on-hide="false"
              :can-cancel="['escape', 'outside']"
              @close="close"
              destroy-on-hide
     >
         <form @submit.prevent="createOrUpdate">
-            <div class="modal-card" style="width: auto">
+            <div class="modal-card modal-card__size">
                 <header class="modal-card-head">
                     <p class="modal-card-title has-text-weight-bold has-text-primary">
                         {{ this.initRoom ? 'Редактировать комнату' : 'Создать комнату' }}
@@ -139,5 +138,8 @@
 </script>
 
 <style scoped>
-
+    .modal-card__size {
+        max-width: 500px;
+        padding: 10px;
+    }
 </style>

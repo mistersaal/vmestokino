@@ -6,7 +6,17 @@
                 :types="$store.state.types"
                 v-if="isAdmin"
             ></room-data-control>
-            <div class="buttons is-right">
+            <invite-friends
+                :id="room.id"
+                :password="room.password"
+                :link="link"
+            ></invite-friends>
+            <div class="buttons has-addons is-right">
+                <b-button
+                    @click="invite"
+                    icon-left="user-plus"
+                    v-if="isAdmin"
+                >Пригласить</b-button>
                 <b-button
                     @click="update"
                     icon-left="edit"
@@ -19,13 +29,22 @@
 
 <script>
     import RoomDataControl from "../../components/RoomDataControl";
+    import InviteFriends from "./InviteFriends";
     export default {
         name: "ControlButtons",
-        components: {RoomDataControl},
+        components: {InviteFriends, RoomDataControl},
         props: ['room', 'isAdmin'],
+        computed: {
+            link() {
+                return this.$store.state.appLink + '#' + this.room.id + '_' + this.room.password;
+            }
+        },
         methods: {
             update() {
                 this.$router.push(this.$route.fullPath + '#update');
+            },
+            invite() {
+                this.$router.push(this.$route.fullPath + '#invite');
             },
         },
     }

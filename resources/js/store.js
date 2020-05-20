@@ -11,7 +11,8 @@ export default new Vuex.Store({
                 regExp: '^(https://)?(((www|m)\\.)?youtube\\.com/watch\\?v=|youtu\\.be/).+',
                 name: 'YouTube'
             }
-        }
+        },
+        appLink: 'https://vk.com/app7447010',
     },
     mutations: {
         createdOwnRoom(state, payload) {
