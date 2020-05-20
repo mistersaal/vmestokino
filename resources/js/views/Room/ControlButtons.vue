@@ -22,6 +22,13 @@
                     icon-left="edit"
                     v-if="isAdmin"
                 >Редактировать</b-button>
+                <b-button
+                    @click="sync"
+                    icon-left="bolt"
+                    :type="synced ? 'is-success' : 'is-danger'"
+                    :loading="syncing"
+                    v-else
+                >{{ synced ? 'Синхронизировано' : 'Синхронизировать' }}</b-button>
             </div>
         </div>
     </section>
@@ -33,7 +40,7 @@
     export default {
         name: "ControlButtons",
         components: {InviteFriends, RoomDataControl},
-        props: ['room', 'isAdmin'],
+        props: ['room', 'isAdmin', 'synced', 'syncing'],
         computed: {
             link() {
                 return this.$store.state.appLink + '#' + this.room.id + '_' + this.room.password;
@@ -46,6 +53,9 @@
             invite() {
                 this.$router.push(this.$route.fullPath + '#invite');
             },
+            sync() {
+                this.$emit('sync');
+            }
         },
     }
 </script>

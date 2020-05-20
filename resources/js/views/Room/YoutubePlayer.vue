@@ -6,6 +6,7 @@
             @playing="$emit('start')"
             @buffering="$emit('buffering')"
             @paused="$emit('stop')"
+            @ready="$emit('ready')"
         ></youtube>
     </div>
 </template>
@@ -29,12 +30,18 @@
             stop() {
                 this.player.pauseVideo();
             },
+            mute() {
+                this.player.mute();
+            },
             seekTo(currentTime) {
                 this.player.seekTo(currentTime);
             },
             getCurrentTime() {
                 return this.player.getCurrentTime();
-            }
+            },
+            isPlaying() {
+                return this.player.getPlayerState() === 1;
+            },
         },
     }
 </script>

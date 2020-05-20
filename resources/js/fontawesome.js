@@ -27,6 +27,7 @@ import {
     faEdit,
     faUserPlus,
     faCopy,
+    faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -58,4 +59,5 @@ library.add(
     faEdit,
     faUserPlus,
     faCopy,
+    faBolt,
 );

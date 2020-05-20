@@ -2,25 +2,22 @@
     <div>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
         <nav-menu></nav-menu>
-        <player :type="room.type"
-                :url="room.url"
-                :everyone_control="room.everyone_control"
+        <player :room="room"
                 :id="id"
                 :password="password"
                 :can-control="canControl"
+                :is-admin="isAdmin"
                 v-if="isReady"
         ></player>
-        <control-buttons :room="room" v-if="isReady" :is-admin="isAdmin"></control-buttons>
     </div>
 </template>
 
 <script>
     import NavMenu from "./NavMenu";
     import Player from "./Player";
-    import ControlButtons from "./ControlButtons";
     export default {
         name: "Room",
-        components: {ControlButtons, Player, NavMenu},
+        components: {Player, NavMenu},
         data() {
             return {
                 id: 0,
@@ -38,7 +35,10 @@
         methods: {
             setListeners() {
                 Echo.join('room.player.' + this.id + '.' + this.password)
-                    .listen('RoomUpdated', (e) => {this.room = e.room})
+                    .listen('RoomUpdated', (e) => {
+                        this.room = e.room;
+                        this.canControl = this.room.everyone_control || this.isAdmin;
+                    })
                     .listen('RoomDeleted', () => {
                         Echo.leave('room.player.' + this.id + '.' + this.password);
                         this.$buefy.snackbar.open({
