@@ -49,6 +49,7 @@
                 anotherControlStop: false,
                 synced: false,
                 syncing: false,
+                stopAfterPlay: false,
             };
         },
         methods: {
@@ -60,8 +61,14 @@
             },
             sync() {
                 this.syncing = true;
-                Echo.join('room.player.' + this.id + '.' + this.password)
-                    .whisper('RoomSync');
+                let timer = setInterval(() => {
+                    if (this.syncing === false) {
+                        clearInterval(timer);
+                        return;
+                    }
+                    Echo.join('room.player.' + this.id + '.' + this.password)
+                        .whisper('RoomSync');
+                }, 3000);
             },
             onSync() {
                 if (this.isAdmin) {
@@ -83,15 +90,10 @@
             },
             setState(state) {
                 if (this.syncing) {
-                    if (state.isPlaying) {
-                        this.start(state.currentTime);
-                    } else {
-                        if (this.player.isPlaying()) {
-                            this.stop();
-                        } else {
-                            this.setSynced();
-                        }
+                    if (!state.isPlaying) {
+                        this.stopAfterPlay = true;
                     }
+                    this.start(state.currentTime);
                 }
             },
             start(currentTime) {
@@ -106,6 +108,10 @@
                         password: this.password,
                         currentTime: this.player.getCurrentTime()
                     });
+                }
+                if (this.stopAfterPlay) {
+                    this.stop();
+                    this.stopAfterPlay = false;
                 }
                 this.checkSync();
                 this.anotherControlStart = false;

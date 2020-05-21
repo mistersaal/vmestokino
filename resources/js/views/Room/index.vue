@@ -94,6 +94,9 @@
         },
         created() {
             this.setRoomData();
+        },
+        destroyed() {
+            Echo.leave('room.player.' + this.id + '.' + this.password);
         }
     }
 </script>
