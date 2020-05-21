@@ -7,6 +7,7 @@
                 :password="password"
                 :can-control="canControl"
                 :is-admin="isAdmin"
+                :users="users"
                 v-if="isReady"
         ></player>
     </div>
@@ -24,7 +25,8 @@
                 password: '',
                 canControl: false,
                 isAdmin: false,
-                room: {}
+                room: {},
+                users: {},
             };
         },
         computed: {
@@ -35,6 +37,11 @@
         methods: {
             setListeners() {
                 Echo.join('room.player.' + this.id + '.' + this.password)
+                    .here((users) => {
+                        users.forEach(user => this.$set(this.users, user.id, user));
+                    })
+                    .joining(user => this.$set(this.users, user.id, user))
+                    .leaving(user => this.$delete(this.users, user.id))
                     .listen('RoomUpdated', (e) => {
                         this.room = e.room;
                         this.canControl = this.room.everyone_control || this.isAdmin;

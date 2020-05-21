@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@creativebulma/bulma-tooltip": "^1.2.0",
         "@vkontakte/vk-bridge": "^2.2.0",
         "axios": "^0.19",
         "buefy": "^0.8.18",

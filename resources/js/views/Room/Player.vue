@@ -12,23 +12,24 @@
             ></youtube-player>
         </div>
 
-        <control-buttons :room="room"
-                         :is-admin="isAdmin"
-                         :synced="synced"
-                         :syncing="syncing"
-                         @sync="sync"
-        ></control-buttons>
+        <room-control-panel :room="room"
+                            :is-admin="isAdmin"
+                            :synced="synced"
+                            :syncing="syncing"
+                            :users="users"
+                            @sync="sync"
+        ></room-control-panel>
     </div>
 
 </template>
 
 <script>
     import YoutubePlayer from "./YoutubePlayer";
-    import ControlButtons from "./ControlButtons";
+    import RoomControlPanel from "./RoomControlPanel";
     export default {
         name: "Player",
-        components: {YoutubePlayer, ControlButtons},
-        props: ['room', 'id', 'password', 'canControl', 'isAdmin'],
+        components: {RoomControlPanel, YoutubePlayer},
+        props: ['room', 'id', 'password', 'canControl', 'isAdmin', 'users'],
         created() {
             Echo.join('room.player.' + this.id + '.' + this.password)
                 .listen('PlayerStart', (e) => {this.start(e.currentTime)})
