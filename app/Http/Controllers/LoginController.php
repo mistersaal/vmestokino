@@ -17,14 +17,16 @@ class LoginController extends Controller
             $user->save();
             return [
                 'newUser' => false,
-                'room' => $user->room
+                'room' => $user->room,
+                'user' => $user,
             ];
         } else {
             $user = $vkUsersData->getNewUser();
             $user->save();
             return [
                 'newUser' => true,
-                'room' => null
+                'room' => null,
+                'user' => $user,
             ];
         }
     }

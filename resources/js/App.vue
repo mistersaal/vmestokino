@@ -42,6 +42,7 @@
                 if (response.data.room) {
                     this.$store.commit('createdOwnRoom', response.data.room);
                 }
+                this.$store.commit('setUser', response.data.user);
                 this.isLoading = false;
             }).catch(error => {
                 this.$buefy.snackbar.open({

@@ -12,6 +12,7 @@ export default new Vuex.Store({
                 name: 'YouTube'
             }
         },
+        user: {},
         appLink: 'https://vk.com/app7447010',
     },
     mutations: {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
         },
         historyPushed(state) {
             state.historyIsEmpty -= 1;
+        },
+        setUser(state, user) {
+            state.user = user;
         }
     }
 })

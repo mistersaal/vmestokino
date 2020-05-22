@@ -60,7 +60,7 @@
         created() {
             Echo.join('room.player.' + this.id + '.' + this.password)
                 .listen('MessageSent', (e) => {
-                    e.message.own = false;
+                    e.message.own = this.$store.state.user.id === e.message.user.id;
                     this.messages.push(e.message);
                 })
         },
