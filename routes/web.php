@@ -29,4 +29,6 @@ Route::middleware('auth.vk')->group(function () {
     Route::post('/room/{id}/buffering', 'PlayerController@buffering')->name('room.event.buffering');
     Route::post('/room/{id}/stop', 'PlayerController@stop')->name('room.event.stop');
     Route::post('/room/{id}/sync','PlayerController@sync')->name('room.event.sync');
+
+    Route::post('/room/{id}/message', 'ChatController@send')->name('room.chat.message');
 });

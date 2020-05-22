@@ -5,19 +5,30 @@
                 <chat-message
                     v-for="(message, key) in messages"
                     :key="key"
-                    :img="users[message.user_id].img"
+                    :img="message.user.img"
                     :text="message.text"
                     :own="message.own"
                 />
             </div>
         </section>
         <section class="section message-input">
-            <b-field>
-                <b-input expanded></b-input>
-                <p class="control">
-                    <b-button icon-left="paper-plane"></b-button>
-                </p>
-            </b-field>
+            <form @submit.prevent="send">
+                <b-field>
+                    <b-input expanded
+                             v-model="message"
+                             maxlength="1500"
+                             :has-counter="false"
+                             placeholder="Сообщение"
+                    ></b-input>
+                    <p class="control">
+                        <b-button native-type="submit"
+                                  icon-left="paper-plane"
+                                  :loading="sending"
+                                  :disabled="!message"
+                        ></b-button>
+                    </p>
+                </b-field>
+            </form>
         </section>
     </div>
 </template>
@@ -27,10 +38,12 @@
     export default {
         name: "Chat",
         components: {ChatMessage},
-        props: ['users'],
+        props: ['id', 'password'],
         data() {
             return {
-                messages: [{"user_id":5,"text":"Сообщениеееееееееееееееееееееее просто огромноееееееееееееееееееееееее","own":false},{"user_id":5,"text":"Сообщение","own":false},{"user_id":5,"text":"Сообщениеееееееееееееееееееееее просто огромноееееееееееееееееееееееее","own":true},{"user_id":5,"text":"Сообщение","own":false},{"user_id":5,"text":"Сообщение","own":false},{"user_id":5,"text":"Сообщение","own":true}],
+                messages: [],
+                message: '',
+                sending: false,
             };
         },
         computed: {
@@ -39,6 +52,33 @@
                 return window.innerHeight - 52 * 3 - playerHeight;
             }
         },
+        created() {
+            Echo.join('room.player.' + this.id + '.' + this.password)
+                .listen('MessageSent', (e) => {
+                    e.message.own = false;
+                    this.messages.push(e.message);
+                })
+        },
+        methods: {
+            send() {
+                if (!this.message) {
+                    return;
+                }
+                this.sending = true;
+                axios.post('/room/' + this.id + '/message', {
+                    password: this.password,
+                    text: this.message
+                }).then(() => {
+                    this.sending = false;
+                    this.messages.push({
+                        text: this.message,
+                        own: true,
+                        user: {img: ''},
+                    });
+                    this.message = '';
+                });
+            },
+        }
     }
 </script>
 

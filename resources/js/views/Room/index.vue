@@ -10,7 +10,7 @@
                 :users="users"
                 v-if="isReady"
         ></player>
-        <chat :users="users"></chat>
+        <chat v-if="isReady" :id="id" :password="password"></chat>
     </div>
 </template>
 
