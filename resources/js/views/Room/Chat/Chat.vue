@@ -44,13 +44,18 @@
                 messages: [],
                 message: '',
                 sending: false,
+                windowHeight: 0,
+                windowWidth: 0,
             };
         },
         computed: {
             chatHeight() {
-                let playerHeight = 0.56 * window.innerWidth > 320 ? 320 : 0.56 * window.innerWidth;
-                return window.innerHeight - 52 * 3 - playerHeight;
+                let playerHeight = 0.56 * this.windowWidth > 320 ? 320 : 0.56 * this.windowWidth;
+                return this.windowHeight - 52 * 3 - playerHeight;
             }
+        },
+        watch: {
+
         },
         created() {
             Echo.join('room.player.' + this.id + '.' + this.password)
@@ -59,7 +64,18 @@
                     this.messages.push(e.message);
                 })
         },
+        mounted() {
+            this.onResize();
+            window.addEventListener('resize', this.onResize);
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.onResize);
+        },
         methods: {
+            onResize() {
+                this.windowHeight = window.innerHeight;
+                this.windowWidth = window.innerWidth;
+            },
             send() {
                 if (!this.message) {
                     return;
