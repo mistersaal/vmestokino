@@ -49,6 +49,7 @@
 <style>
     iframe {
         width: 100% !important;
-        height: 360px !important;
+        height: 56vw !important;
+        max-height: 320px;
     }
 </style>

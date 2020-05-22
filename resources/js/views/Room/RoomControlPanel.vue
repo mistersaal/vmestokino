@@ -31,6 +31,6 @@
 
 <style scoped>
     .level {
-        box-shadow: 0 7px 15px rgba(10, 10, 10, 0.07);
+        box-shadow: 0 2px 10px rgba(10, 10, 10, 0.05);
     }
 </style>

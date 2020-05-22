@@ -10,15 +10,17 @@
                 :users="users"
                 v-if="isReady"
         ></player>
+        <chat :users="users"></chat>
     </div>
 </template>
 
 <script>
     import NavMenu from "./NavMenu";
     import Player from "./Player";
+    import Chat from "./Chat/Chat";
     export default {
         name: "Room",
-        components: {Player, NavMenu},
+        components: {Chat, Player, NavMenu},
         data() {
             return {
                 id: 0,

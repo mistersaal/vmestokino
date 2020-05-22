@@ -85,6 +85,6 @@
 
 <style scoped>
     .section {
-        padding: 0.75rem;
+        padding: 0.5rem 0.75rem;
     }
 </style>
