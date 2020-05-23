@@ -8,7 +8,7 @@
                 </figure>
             </div>
             <div class="level-item">
-                <b-notification type="is-primary" :closable="false">{{ text }}</b-notification>
+                <b-notification :type="own ? 'is-light' : 'is-primary'" :closable="false">{{ text }}</b-notification>
             </div>
         </div>
         <div class="level-right" v-if="!own"></div>

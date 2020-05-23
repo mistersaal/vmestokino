@@ -29,6 +29,7 @@ import {
     faCopy,
     faBolt,
     faPaperPlane,
+    faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -62,4 +63,5 @@ library.add(
     faCopy,
     faBolt,
     faPaperPlane,
+    faChevronDown,
 );
