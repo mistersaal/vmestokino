@@ -1,10 +1,10 @@
 <template>
     <div>
-        <section class="section"
+        <section class="section chat-body"
                  :style="{height: chatHeight + 'px', 'overflow-y': 'scroll', 'scroll-behavior': 'smooth'}"
                  ref="chatBody"
         >
-            <div class="container is-fluid">
+            <div style="padding-top: 0.75rem;">
                 <chat-message
                     v-for="(message, key) in messages"
                     :key="key"
@@ -26,6 +26,7 @@
                     <p class="control">
                         <b-button native-type="submit"
                                   icon-left="paper-plane"
+                                  @focus.native=""
                                   :loading="sending"
                                   :disabled="!message"
                         ></b-button>
@@ -151,5 +152,9 @@
         padding: 10px 18px 6px 18px;
         border-width: 0;
         box-shadow: 0 2px 10px rgba(10, 10, 10, 0.07);
+    }
+    .chat-body {
+        display: flex;
+        flex-direction: column-reverse;
     }
 </style>
