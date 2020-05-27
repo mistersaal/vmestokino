@@ -5,7 +5,8 @@ import Room from "./views/Room/index";
 export default [
     {
         path: '/welcome',
-        component: Welcome
+        // component: Welcome,
+        redirect: '/' //TODO
     },
     {
         path: '/',
