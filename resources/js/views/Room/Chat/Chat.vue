@@ -62,7 +62,9 @@
                 let playerHeight = 0.56 * this.windowWidth > 320 ? 320 : 0.56 * this.windowWidth;
                 let iphonePaddingTop = +getComputedStyle(document.documentElement)
                     .getPropertyValue("--sat").slice(0, -2);
-                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop;
+                let iphonePaddingBottom = +getComputedStyle(document.documentElement)
+                    .getPropertyValue("--sab").slice(0, -2);
+                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop - iphonePaddingBottom;
             },
             chatBody() {
                 return this.$refs['chatBody'];
