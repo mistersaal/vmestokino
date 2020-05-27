@@ -60,7 +60,9 @@
         computed: {
             chatHeight() {
                 let playerHeight = 0.56 * this.windowWidth > 320 ? 320 : 0.56 * this.windowWidth;
-                return this.windowHeight - 52 * 3 - playerHeight;
+                let iphonePaddingTop = +getComputedStyle(document.documentElement)
+                    .getPropertyValue("--sat").slice(0, -2);
+                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop;
             },
             chatBody() {
                 return this.$refs['chatBody'];
