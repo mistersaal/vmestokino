@@ -28,17 +28,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Auth::provider('vk', function ($app, array $config) {
-            return new VkUserProvider();
-        });
-
-        Auth::extend('vkHeader', function ($app, $name, array $config) {
-            return new VkGuard(
-                Auth::createUserProvider($config['provider']),
-                $app->make('request'),
-                $app->make(VkSign::class)
-            );
-        });
     }
 }

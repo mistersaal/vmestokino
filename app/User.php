@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Mistersaal\VkMiniAppsAuth\VkMiniAppsAuthenticatable;
 
 /**
  * Class User
@@ -15,7 +16,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string img
  * @property Room room
  */
-class User extends Authenticatable
+class User extends Authenticatable implements VkMiniAppsAuthenticatable
 {
     use Notifiable;
 
@@ -48,5 +49,10 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function getVkIdFieldName()
+    {
+        return 'vkid';
     }
 }

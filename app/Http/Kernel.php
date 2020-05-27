@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\Room;
 use App\Http\Middleware\RoomPlayer;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Mistersaal\VkMiniAppsAuth\VkMiniAppsAuthenticate;
 
 class Kernel extends HttpKernel
 {
@@ -55,7 +56,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.vk' => \App\Http\Middleware\VkAuthenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

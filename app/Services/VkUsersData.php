@@ -19,7 +19,7 @@ class VkUsersData
     {
         $this->vkClient = new VKApiClient('5.101', VKLanguage::RUSSIAN);
         $this->vkGuard = $vkGuard;
-        $this->token = config('vk.app.token');
+        $this->token = config('vkminiapps.app.token');
     }
 
     public function getNewUser()
