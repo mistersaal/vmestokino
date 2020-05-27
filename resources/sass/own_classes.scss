@@ -1,11 +1,3 @@
-body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-}
 html, body {
     height: 100%;
-}
-:root {
-    --sat: env(safe-area-inset-top);
-    --sab: env(safe-area-inset-bottom);
 }

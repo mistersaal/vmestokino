@@ -137,14 +137,14 @@
         flex-direction: column-reverse;
         position: fixed;
         width: 100%;
-        top: calc(104px + min(56vw, 320px) + var(--sat));
-        bottom: calc(52px + var(--sab));
+        top: calc(104px + min(56vw, 320px));
+        bottom: 52px;
         overflow-y: scroll;
         scroll-behavior: smooth;
     }
     .message-input {
         position: fixed;
-        bottom: var(--sab);
+        bottom: 0;
         width: 100%;
         height: 52px; padding: 0.5rem 0.75rem;
         box-shadow: 0 -2px 10px rgba(10, 10, 10, 0.05);
