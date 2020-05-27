@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
-        <nav-menu class="navmenu"></nav-menu>
+        <nav-menu></nav-menu>
         <player :room="room"
                 :id="id"
                 :password="password"
@@ -9,7 +9,6 @@
                 :is-admin="isAdmin"
                 :users="users"
                 v-if="isReady"
-                class="player"
         ></player>
         <chat v-if="isReady" :id="id" :password="password"></chat>
     </div>
@@ -105,14 +104,5 @@
 </script>
 
 <style scoped>
-    .navmenu {
-        position: fixed;
-        top: var(--sat);
-        width: 100%;
-    }
-    .player {
-        position: fixed;
-        top: calc(var(--sat) + 52px);
-        width: 100%;
-    }
+
 </style>
