@@ -16397,7 +16397,7 @@ __webpack_require__.r(__webpack_exports__);
         this.windowWidth = window.innerWidth;
       }
 
-      this.realHeight = window.innerHeight;
+      this.realHeight = Math.max(document.body.clientHeight || 0, window.innerHeight || 0);
     },
     setListeners: function setListeners() {
       var _this = this;

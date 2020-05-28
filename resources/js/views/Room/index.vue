@@ -72,7 +72,7 @@
                     this.windowHeight = window.innerHeight;
                     this.windowWidth = window.innerWidth;
                 }
-                this.realHeight = window.innerHeight;
+                this.realHeight = Math.max(document.body.clientHeight || 0, window.innerHeight || 0);
             },
             setListeners() {
                 Echo.join('room.player.' + this.id + '.' + this.password)
