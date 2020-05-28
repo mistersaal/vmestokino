@@ -2,27 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\VkAuth\VkUsersData;
-use App\User;
-use Illuminate\Http\Request;
+use App\Services\UserService;
 
 class LoginController extends Controller
 {
-    public function login(VkUsersData $vkUsersData)
+    public function login(UserService $userService)
     {
         if (auth()->validate()) {
-            /** @var User $user */
-            $user = auth()->user();
-            $vkUsersData->updateUserData($user);
-            $user->save();
+            $user = $userService->updateUser(auth()->user());
             return [
                 'newUser' => false,
                 'room' => $user->room,
                 'user' => $user,
             ];
         } else {
-            $user = $vkUsersData->getNewUser();
-            $user->save();
+            $user = $userService->createNewUser();
             return [
                 'newUser' => true,
                 'room' => null,

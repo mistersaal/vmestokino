@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\VkAuth;
+namespace App\Services;
 
 
 use App\User;
