@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
-        <nav-menu :style="{'margin-top': (this.realHeight - this.windowHeight) + 'px'}"></nav-menu>
+        <nav-menu :style="{'margin-top': marginTop + 'px'}"></nav-menu>
         <player :room="room"
                 :id="id"
                 :password="password"
@@ -15,6 +15,7 @@
               :password="password"
               :window-height="windowHeight"
               :window-width="windowWidth"
+              :margin-top="marginTop + ' ' + realHeight + ' ' + windowHeight"
         ></chat>
     </div>
 </template>
@@ -42,7 +43,10 @@
         computed: {
             isReady() {
                 return !_.isEmpty(this.room);
-            }
+            },
+            marginTop() {
+                return this.realHeight - this.windowHeight;
+            },
         },
         mounted() {
             this.onResize();
