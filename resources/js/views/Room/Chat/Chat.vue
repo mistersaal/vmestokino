@@ -1,6 +1,9 @@
 <template>
     <div>
-        <section class="section chat-body" ref="chatBody">
+        <section class="section chat-body"
+                 :style="{height: chatHeight + 'px', 'overflow-y': 'scroll', 'scroll-behavior': 'smooth'}"
+                 ref="chatBody"
+        >
             <div style="padding-top: 0.75rem;">
                 <chat-message
                     v-for="(message, key) in messages"
@@ -55,6 +58,14 @@
             };
         },
         computed: {
+            chatHeight() {
+                let playerHeight = 0.56 * this.windowWidth > 320 ? 320 : 0.56 * this.windowWidth;
+                let iphonePaddingTop = +getComputedStyle(document.documentElement)
+                    .getPropertyValue("--sat").slice(0, -2);
+                let iphonePaddingBottom = +getComputedStyle(document.documentElement)
+                    .getPropertyValue("--sab").slice(0, -2);
+                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop - iphonePaddingBottom;
+            },
             chatBody() {
                 return this.$refs['chatBody'];
             },
@@ -89,7 +100,7 @@
         },
         methods: {
             positionAtBottom() {
-                return (this.chatBody.scrollHeight - this.chatBody.clientHeight - this.chatPosition) < 10;
+                return (this.chatBody.scrollHeight - this.chatHeight - this.chatPosition) < 10;
             },
             onChatScroll() {
                 this.chatPosition = this.chatBody.scrollTop;
@@ -132,20 +143,7 @@
     .level {
         margin-bottom: 0.5rem !important;
     }
-    .chat-body {
-        display: flex;
-        flex-direction: column-reverse;
-        position: fixed;
-        width: 100%;
-        top: calc(104px + min(56vw, 320px) + var(--sat));
-        bottom: calc(52px + var(--sab));
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-    }
     .message-input {
-        position: fixed;
-        bottom: var(--sab);
-        width: 100%;
         height: 52px; padding: 0.5rem 0.75rem;
         box-shadow: 0 -2px 10px rgba(10, 10, 10, 0.05);
     }
@@ -158,5 +156,9 @@
         padding: 10px 18px 6px 18px;
         border-width: 0;
         box-shadow: 0 2px 10px rgba(10, 10, 10, 0.07);
+    }
+    .chat-body {
+        display: flex;
+        flex-direction: column-reverse;
     }
 </style>
