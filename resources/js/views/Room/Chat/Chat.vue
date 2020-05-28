@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="section chat-body"
-                 :style="{height: chatHeight + 'px', 'overflow-y': 'scroll', 'scroll-behavior': 'smooth'}"
+                 :style="{height: chatHeight + 'px'}"
                  ref="chatBody"
         >
             <div style="padding-top: 0.75rem;">
@@ -14,7 +14,7 @@
                 />
             </div>
         </section>
-        <section class="section message-input">
+        <section class="section message-input" :style="{'padding-bottom': iphonePaddingBottom + 'px'}">
             <form @submit.prevent="send">
                 <b-field>
                     <b-input expanded
@@ -62,9 +62,16 @@
                 let playerHeight = 0.56 * this.windowWidth > 320 ? 320 : 0.56 * this.windowWidth;
                 let iphonePaddingTop = +getComputedStyle(document.documentElement)
                     .getPropertyValue("--sat").slice(0, -2);
-                let iphonePaddingBottom = +getComputedStyle(document.documentElement)
-                    .getPropertyValue("--sab").slice(0, -2);
-                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop - iphonePaddingBottom;
+                return this.windowHeight - 52 * 3 - playerHeight - iphonePaddingTop - this.iphonePaddingBottom;
+            },
+            iphonePaddingBottom()
+            {
+                if (this.windowHeight < 600) {
+                    return 0;
+                } else {
+                    return +getComputedStyle(document.documentElement)
+                        .getPropertyValue("--sab").slice(0, -2);
+                }
             },
             chatBody() {
                 return this.$refs['chatBody'];
@@ -91,7 +98,11 @@
         },
         mounted() {
             this.onResize();
-            window.addEventListener('resize', this.onResize);
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', this.onResize);
+            } else {
+                window.addEventListener('resize', this.onResize);
+            }
             this.chatBody.addEventListener('scroll', this.onChatScroll);
         },
         beforeDestroy() {
@@ -106,8 +117,13 @@
                 this.chatPosition = this.chatBody.scrollTop;
             },
             onResize() {
-                this.windowHeight = window.innerHeight;
-                this.windowWidth = window.innerWidth;
+                if (window.visualViewport) {
+                    this.windowHeight = window.visualViewport.height;
+                    this.windowWidth = window.visualViewport.width;
+                } else {
+                    this.windowHeight = window.innerHeight;
+                    this.windowWidth = window.innerWidth;
+                }
             },
             scrollDown() {
                 this.chatBody.scrollTop = this.chatBody.scrollHeight;
@@ -149,7 +165,7 @@
     }
     .scrolldown-button {
         position: absolute;
-        bottom: 70px;
+        bottom: calc(70px + var(--sab));
         right: 20px;
     }
     .scrolldown-button .button {
@@ -160,5 +176,7 @@
     .chat-body {
         display: flex;
         flex-direction: column-reverse;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
     }
 </style>
