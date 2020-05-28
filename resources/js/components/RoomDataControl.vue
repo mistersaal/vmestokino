@@ -9,7 +9,7 @@
         <form @submit.prevent="createOrUpdate">
             <div class="modal-card modal-card__size">
                 <header class="modal-card-head">
-                    <p class="modal-card-title has-text-weight-bold has-text-primary">
+                    <p class="modal-card-title has-text-weight-bold">
                         {{ this.initRoom ? 'Редактировать комнату' : 'Создать комнату' }}
                     </p>
                 </header>

@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <h2 class="title is-5" v-if="!ownRoom">Создать комнату</h2>
+        <h2 class="title is-5" v-if="!ownRoom">Смотреть вместе</h2>
         <h2 class="title is-5" v-else>Своя комната</h2>
         <room-data-control
             :init-room="ownRoom"
@@ -70,22 +70,32 @@
                 this.$router.push(this.$route.fullPath + '#update');
             },
             deleteRoom() {
-                axios.delete('/room').then((r) => {
-                    this.$store.commit('deletedOwnRoom');
-                    this.$buefy.snackbar.open({
-                        message: r.data.message,
-                        actionText: null,
-                        position: 'is-top',
-                        queue: false
-                    })
-                }).catch((e) => {
-                    this.$buefy.snackbar.open({
-                        message: e.response.data.message,
-                        actionText: null,
-                        position: 'is-top',
-                        queue: false
-                    })
-                });
+                this.$buefy.dialog.confirm({
+                    title: 'Удаление комнаты',
+                    message: `Вы уверены, что хотите удалить комнату?<br>
+                                Все, кто в ней находятся, будут возвращены в меню.`,
+                    confirmText: 'Удалить комнату',
+                    cancelText: 'Отмена',
+                    type: 'is-danger',
+                    onConfirm: () => {
+                        axios.delete('/room').then((r) => {
+                            this.$store.commit('deletedOwnRoom');
+                            this.$buefy.snackbar.open({
+                                message: r.data.message,
+                                actionText: null,
+                                position: 'is-top',
+                                queue: false
+                            })
+                        }).catch((e) => {
+                            this.$buefy.snackbar.open({
+                                message: e.response.data.message,
+                                actionText: null,
+                                position: 'is-top',
+                                queue: false
+                            })
+                        });
+                    }
+                })
             },
             toOwnRoom() {
                 this.$router.push('/room');

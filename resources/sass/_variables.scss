@@ -6,3 +6,8 @@ $navbar-box-shadow-size: 0px 5px 25px;
 $navbar-box-shadow-color: rgba(10, 10, 10, 0.07);
 $background: #fff;
 $input-shadow: 0;
+$modal-card-title-color: $primary;
+
+.dialog .modal-card .modal-card-head {
+    font-weight: 700;
+}
