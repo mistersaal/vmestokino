@@ -6,7 +6,7 @@
              @close="close"
              destroy-on-hide
     >
-        <div class="modal-card modal-card__size">
+        <div class="modal-card">
             <header class="modal-card-head">
                 <p class="modal-card-title has-text-weight-bold has-text-primary">
                     Пригласить друзей
@@ -86,8 +86,5 @@
 </script>
 
 <style scoped>
-    .modal-card__size {
-        max-width: 500px;
-        padding: 10px;
-    }
+
 </style>

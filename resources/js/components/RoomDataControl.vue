@@ -7,7 +7,7 @@
              destroy-on-hide
     >
         <form @submit.prevent="createOrUpdate">
-            <div class="modal-card modal-card__size">
+            <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title has-text-weight-bold">
                         {{ this.initRoom ? 'Редактировать комнату' : 'Создать комнату' }}
@@ -138,8 +138,5 @@
 </script>
 
 <style scoped>
-    .modal-card__size {
-        max-width: 500px;
-        padding: 10px;
-    }
+
 </style>

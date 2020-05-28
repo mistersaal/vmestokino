@@ -7,7 +7,17 @@ $navbar-box-shadow-color: rgba(10, 10, 10, 0.07);
 $background: #fff;
 $input-shadow: 0;
 $modal-card-title-color: $primary;
+$modal-content-width: 600px;
 
-.dialog .modal-card .modal-card-head {
-    font-weight: 700;
+
+.dialog .modal-card {
+    .modal-card-head {
+        font-weight: 700;
+    }
+    .modal-card-foot {
+        justify-content: flex-start;
+    }
+}
+.animation-content {
+    padding: 15px;
 }
