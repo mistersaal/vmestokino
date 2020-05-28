@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
-        <nav-menu :style="{'margin-top': this.realHeight - this.windowHeight}"></nav-menu>
+        <nav-menu :style="{'margin-top': (this.realHeight - this.windowHeight) + 'px'}"></nav-menu>
         <player :room="room"
                 :id="id"
                 :password="password"
