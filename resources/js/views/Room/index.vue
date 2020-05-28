@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
-        <nav-menu></nav-menu>
+        <nav-menu :style="{'margin-top': this.realHeight - this.windowHeight}"></nav-menu>
         <player :room="room"
                 :id="id"
                 :password="password"
@@ -10,7 +10,12 @@
                 :users="users"
                 v-if="isReady"
         ></player>
-        <chat v-if="isReady" :id="id" :password="password"></chat>
+        <chat v-if="isReady"
+              :id="id"
+              :password="password"
+              :window-height="windowHeight"
+              :window-width="windowWidth"
+        ></chat>
     </div>
 </template>
 
@@ -29,6 +34,9 @@
                 isAdmin: false,
                 room: {},
                 users: {},
+                windowHeight: 0,
+                windowWidth: 0,
+                realHeight: 0,
             };
         },
         computed: {
@@ -36,7 +44,32 @@
                 return !_.isEmpty(this.room);
             }
         },
+        mounted() {
+            this.onResize();
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', this.onResize);
+            } else {
+                window.addEventListener('resize', this.onResize);
+            }
+        },
+        beforeDestroy() {
+            if (window.visualViewport) {
+                window.visualViewport.removeEventListener('resize', this.onResize);
+            } else {
+                window.removeEventListener('resize', this.onResize);
+            }
+        },
         methods: {
+            onResize() {
+                if (window.visualViewport) {
+                    this.windowHeight = window.visualViewport.height;
+                    this.windowWidth = window.visualViewport.width;
+                } else {
+                    this.windowHeight = window.innerHeight;
+                    this.windowWidth = window.innerWidth;
+                }
+                this.realHeight = window.innerHeight;
+            },
             setListeners() {
                 Echo.join('room.player.' + this.id + '.' + this.password)
                     .here((users) => {

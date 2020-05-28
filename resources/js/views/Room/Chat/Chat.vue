@@ -45,14 +45,12 @@
     export default {
         name: "Chat",
         components: {ChatMessage},
-        props: ['id', 'password'],
+        props: ['id', 'password', 'windowWidth', 'windowHeight'],
         data() {
             return {
                 messages: [],
                 message: '',
                 sending: false,
-                windowHeight: 0,
-                windowWidth: 0,
                 chatPosition: 0,
                 needScrollDown: false,
             };
@@ -97,16 +95,9 @@
                 })
         },
         mounted() {
-            this.onResize();
-            if (window.visualViewport) {
-                window.visualViewport.addEventListener('resize', this.onResize);
-            } else {
-                window.addEventListener('resize', this.onResize);
-            }
             this.chatBody.addEventListener('scroll', this.onChatScroll);
         },
         beforeDestroy() {
-            window.removeEventListener('resize', this.onResize);
             this.chatBody.removeEventListener('scroll', this.onChatScroll);
         },
         methods: {
@@ -115,15 +106,6 @@
             },
             onChatScroll() {
                 this.chatPosition = this.chatBody.scrollTop;
-            },
-            onResize() {
-                if (window.visualViewport) {
-                    this.windowHeight = window.visualViewport.height;
-                    this.windowWidth = window.visualViewport.width;
-                } else {
-                    this.windowHeight = window.innerHeight;
-                    this.windowWidth = window.innerWidth;
-                }
             },
             scrollDown() {
                 this.chatBody.scrollTop = this.chatBody.scrollHeight;
