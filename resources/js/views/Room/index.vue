@@ -15,7 +15,6 @@
               :password="password"
               :window-height="windowHeight"
               :window-width="windowWidth"
-              :margin-top="marginTop + ' ' + realHeight + ' ' + windowHeight"
         ></chat>
     </div>
 </template>

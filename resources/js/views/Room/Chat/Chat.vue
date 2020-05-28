@@ -18,7 +18,7 @@
             <form @submit.prevent="send">
                 <b-field>
                     <b-input expanded
-                             :value="marginTop"
+                             v-model="message"
                              maxlength="1500"
                              :has-counter="false"
                              placeholder="Сообщение"
@@ -45,7 +45,7 @@
     export default {
         name: "Chat",
         components: {ChatMessage},
-        props: ['id', 'password', 'windowWidth', 'windowHeight', 'marginTop'],
+        props: ['id', 'password', 'windowWidth', 'windowHeight'],
         data() {
             return {
                 messages: [],
