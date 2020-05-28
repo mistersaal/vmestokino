@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\RoomDeleted;
 use App\Events\RoomUpdated;
+use App\Http\Requests\RoomDataRequest;
 use App\Room;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,21 +31,21 @@ class RoomController extends Controller
         return $room;
     }
 
-    public function create()
+    public function create(RoomDataRequest $request)
     {
         /** @var User $user */
         $user = auth()->user();
         if ($user->room()->exists()) {
             return response(['message' => 'Комната уже существует'], 409);
         }
-        $data = $this->getValidData();
+        $data = $request->validated();
         $data['password'] = Str::random(8);
 
         $user->room()->create($data);
         return response(['message' => 'Комната создана'], 200);
     }
 
-    public function update()
+    public function update(RoomDataRequest $request)
     {
         /** @var User $user */
         $user = auth()->user();
@@ -52,7 +53,7 @@ class RoomController extends Controller
             return response(['message' => 'Комната не существует'], 404);
         }
 
-        $data = $this->getValidData();
+        $data = $request->validated();
         $user->room()->update($data);
         $room = $user->room;
         broadcast(new RoomUpdated($room->id, $room->password, $room));
@@ -72,23 +73,5 @@ class RoomController extends Controller
         $room->delete();
         broadcast(new RoomDeleted($id, $password));
         return response(['message' => 'Комната удалена'], 200);
-    }
-
-    private function getValidData()
-    {
-        $room = new Room();
-        return request()->validate([
-            'everyone_control' => 'required|boolean',
-            'type' => [
-                'required',
-                Rule::in($room->types)
-            ],
-            'url' => [
-                'required',
-                'string',
-                'max:1000',
-                'regex:' . ($room->validUrls[request('type')] ?? '/^\s*$/')
-            ]
-        ]);
     }
 }
