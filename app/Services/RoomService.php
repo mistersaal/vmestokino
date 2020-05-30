@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Events\RoomDeleted;
 use App\Events\RoomUpdated;
+use App\Room;
 use Illuminate\Support\Str;
 use App\User;
 
@@ -30,5 +31,11 @@ class RoomService
         $password = $room->password;
         $room->delete();
         broadcast(new RoomDeleted($id, $password));
+    }
+
+    public function setAdditionalFieldsToRoom(Room $room, User $user)
+    {
+        $room->currentUserCanControl = $user->hasAccessToControlPlayer($room);
+        $room->isAdmin = $user->isAdminInRoom($room);
     }
 }

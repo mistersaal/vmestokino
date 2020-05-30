@@ -6,15 +6,21 @@ use App\Http\Requests\PasswordRequest;
 use App\Http\Requests\RoomDataRequest;
 use App\Room;
 use App\Services\RoomService;
-use App\User;
 
 class RoomController extends Controller
 {
+    private $roomService;
+
+    public function __construct(RoomService $roomService)
+    {
+        $this->roomService = $roomService;
+    }
+
     public function index()
     {
         $user = auth()->user();
         $room = $user->room()->firstOrFail();
-        $this->setAdditionalFieldsToRoom($room, $user);
+        $this->roomService->setAdditionalFieldsToRoom($room, $user);
 
         return $room;
     }
@@ -23,40 +29,34 @@ class RoomController extends Controller
     {
         $this->authorize('view', [$room, $request->password]);
 
-        $this->setAdditionalFieldsToRoom($room, auth()->user());
+        $this->roomService->setAdditionalFieldsToRoom($room, auth()->user());
 
         return $room;
     }
 
-    private function setAdditionalFieldsToRoom(Room $room, User $user)
-    {
-        $room->currentUserCanControl = $user->hasAccessToControlPlayer($room);
-        $room->isAdmin = $user->isAdminInRoom($room);
-    }
-
-    public function create(RoomDataRequest $request, RoomService $roomService)
+    public function create(RoomDataRequest $request)
     {
         $this->authorize('create', Room::class);
 
-        $roomService->createRoom(auth()->user(), $request->validated());
+        $this->roomService->createRoom(auth()->user(), $request->validated());
 
         return response(['message' => 'Комната создана'], 200);
     }
 
-    public function update(RoomDataRequest $request, RoomService $roomService)
+    public function update(RoomDataRequest $request)
     {
         $this->authorize('update', Room::class);
 
-        $roomService->updateUserRoom(auth()->user(), $request->validated());
+        $this->roomService->updateUserRoom(auth()->user(), $request->validated());
 
         return response(['message' => 'Комната отредактирована'], 200);
     }
 
-    public function delete(RoomService $roomService)
+    public function delete()
     {
         $this->authorize('delete', Room::class);
 
-        $roomService->deleteUserRoom(auth()->user());
+        $this->roomService->deleteUserRoom(auth()->user());
 
         return response(['message' => 'Комната удалена'], 200);
     }
