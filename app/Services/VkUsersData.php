@@ -15,33 +15,24 @@ class VkUsersData
     private $vkGuard;
     private $token;
 
-    public function __construct(Guard $vkGuard)
+    public function __construct(Guard $vkGuard, string $token)
     {
         $this->vkClient = new VKApiClient('5.101', VKLanguage::RUSSIAN);
         $this->vkGuard = $vkGuard;
-        $this->token = config('vkminiapps.app.token');
+        $this->token = $token;
     }
 
-    public function getNewUser()
+    public function getUserData($vkId)
     {
-        $vkId = $this->vkGuard->getCredentials()['vk_user_id'];
-        $data = $this->getUserData($vkId);
-        return new User([
+        $data = $this->getUserDataFromApi($vkId);
+        return [
             'vkid' => $vkId,
             'img' => $data['photo_50'],
             'name' => $data['first_name'] . ' ' . $data['last_name']
-        ]);
+        ];
     }
 
-    public function updateUserData(User $user)
-    {
-        $data = $this->getUserData($user->vkid);
-        $user->img = $data['photo_50'];
-        $user->name = $data['first_name'] . ' ' . $data['last_name'];
-        return $user;
-    }
-
-    private function getUserData($vkId)
+    private function getUserDataFromApi($vkId)
     {
         $data = $this->vkClient->users()->get($this->token, [
             'user_ids' => $vkId,

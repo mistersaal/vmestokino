@@ -17,14 +17,17 @@ class UserService
 
     public function updateUser(User $user): User
     {
-        $this->vkUsersData->updateUserData($user);
-        $user->save();
+        $user->update(
+            $this->vkUsersData->getUserData($user->{$user->getVkIdFieldName()})
+        );
         return $user;
     }
 
-    public function createNewUser(): User
+    public function createNewUser($vkId): User
     {
-        $user = $this->vkUsersData->getNewUser();
+        $user = new User(
+            $this->vkUsersData->getUserData($vkId)
+        );
         $user->save();
         return $user;
     }
