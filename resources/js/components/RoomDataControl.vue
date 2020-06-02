@@ -14,7 +14,7 @@
                     </p>
                 </header>
                 <section class="modal-card-body">
-                    <b-field label="Тип комнаты">
+                    <b-field label="Тип видео/фильма">
                         <b-select v-model="room.type"
                                   validation-message="Выберите тип"
                                   required
@@ -30,14 +30,18 @@
                         <b-input
                             placeholder="Ссылка"
                             :pattern="types[room.type].regExp"
-                            validation-message="Неверная ссылка"
+                            type="url"
+                            :validation-message="errorUrl"
                             v-model="room.url"
                             maxlength="1000"
                             :has-counter="false"
                             required>
                         </b-input>
                     </b-field>
-                    <b-checkbox :value="!room.everyone_control" @input="room.everyone_control = !$event">
+                    <b-checkbox :value="!room.everyone_control"
+                                @input="room.everyone_control = !$event"
+                                type="is-primary"
+                    >
                         Видео управляет только создатель комнаты
                     </b-checkbox>
                 </section>
@@ -92,7 +96,10 @@
             },
             isOpen() {
                 return this.$route.hash === '#update' || this.$route.hash === '#create';
-            }
+            },
+            errorUrl() {
+                return this.room.url.length === 0 ? 'Обязательное поле' : 'Неверная ссылка';
+            },
         },
         methods: {
             close() {

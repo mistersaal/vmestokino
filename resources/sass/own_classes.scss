@@ -8,3 +8,14 @@ html, body {
     --sat: env(safe-area-inset-top);
     --sab: env(safe-area-inset-bottom);
 }
+.dialog .modal-card {
+    .modal-card-head {
+        font-weight: 700;
+    }
+    .modal-card-foot {
+        justify-content: flex-start;
+    }
+}
+.animation-content {
+    padding: 15px;
+}

@@ -2,11 +2,13 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 @import "~bulma/sass/utilities/derived-variables";
+@import "~buefy/src/scss/utils/functions";
+@import "~buefy/src/scss/utils/variables";
 
 @import "variables";
 
 @import "~bulma";
 @import "~@creativebulma/bulma-tooltip";
-@import "~buefy/dist/buefy.css";
+@import "~buefy/src/scss/buefy";
 
 @import "own_classes";
