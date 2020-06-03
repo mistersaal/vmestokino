@@ -19,7 +19,7 @@ class RoomController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $room = $user->room()->firstOrFail();
+        $room = $user->room()->first() ?? abort(404, 'Комнаты не существует');
         $this->roomService->setAdditionalFieldsToRoom($room, $user);
 
         return $room;

@@ -15,7 +15,7 @@ class Room
      */
     public function handle($request, Closure $next)
     {
-        $room = \App\Room::findOrFail($request->route('id'));
+        $room = \App\Room::find($request->route('id')) ?? abort(404, 'Комната не найдена');
 
         if ($room->password !== $request->get('password')) {
             return response(['message' => 'Доступ запрещен'], 403);

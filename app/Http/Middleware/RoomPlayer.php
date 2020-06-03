@@ -16,7 +16,7 @@ class RoomPlayer
      */
     public function handle($request, Closure $next)
     {
-        $room = Room::findOrFail($request->route('id'));
+        $room = Room::find($request->route('id')) ?? abort(404, 'Комната не найдена');
         if (
             $room->password !== $request->get('password') ||
             !auth()->user()->hasAccessToControlPlayer($room)
