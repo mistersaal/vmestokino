@@ -46,10 +46,10 @@
                     </b-checkbox>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button" type="button" @click="close">Отмена</button>
-                    <button class="button is-primary" :disabled="isNotEdited">
+                    <b-button @click="close">Отмена</b-button>
+                    <b-button type="is-primary" native-type="submit" :disabled="isNotEdited" :loading="isLoading">
                         {{ this.initRoom ? 'Сохранить' : 'Создать' }}
-                    </button>
+                    </b-button>
                 </footer>
             </div>
         </form>
@@ -67,6 +67,7 @@
                     everyone_control: false,
                     type: this.defaultType ?? 'youtube'
                 },
+                isLoading: false
             };
         },
         watch: {
@@ -106,9 +107,11 @@
                 this.$router.back();
             },
             createOrUpdate() {
+                this.isLoading = true;
                 if (!this.initRoom) {
                     axios.post('/room', this.room).then(response => {
                         this.$store.commit('createdOwnRoom', this.room);
+                        this.isLoading = false;
                         this.$router.replace('/room');
                     }).catch(error => {
                         this.$buefy.toast.open({
@@ -116,18 +119,21 @@
                             type: 'is-danger',
                             queue: false
                         })
+                        this.isLoading = false;
                     });
                 } else {
                     axios.put('/room', this.room).then(response => {
                         this.$store.commit('createdOwnRoom', this.room);
                         this.close();
                         this.$buefy.toast.open({message: response.data.message, queue: false});
+                        this.isLoading = false;
                     }).catch(error => {
                         this.$buefy.toast.open({
                             message: error.response.data.message,
                             type: 'is-danger',
                             queue: false
                         })
+                        this.isLoading = false;
                     });
                 }
             }
