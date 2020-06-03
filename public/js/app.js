@@ -79605,7 +79605,7 @@ var router = new VueRouter({
   routes: _routes__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 router.afterEach(function (to, from, next) {
-  if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.historyIsEmpty) {
+  if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.historyIsEmpty && to.path !== from.path) {
     _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('historyPushed');
   }
 });

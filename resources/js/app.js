@@ -10,7 +10,7 @@ const router = new VueRouter({
     routes
 })
 router.afterEach((to, from, next) => {
-    if (store.state.historyIsEmpty) {
+    if (store.state.historyIsEmpty && to.path !== from.path) {
         store.commit('historyPushed');
     }
 })
