@@ -86,12 +86,7 @@
                     })
                     .listen('RoomDeleted', () => {
                         Echo.leave('room.player.' + this.id + '.' + this.password);
-                        this.$buefy.snackbar.open({
-                            duration: 5 * 1000,
-                            message: 'Комната была удалена',
-                            actionText: null,
-                            position: 'is-top'
-                        })
+                        this.$buefy.toast.open({message: 'Комната была удалена', queue: false});
                         this.$router.replace('/');
                     });
             },
@@ -120,11 +115,10 @@
                         } else if (error.response.status === 403) {
                             message = 'Неверный пароль.';
                         }
-                        this.$buefy.snackbar.open({
-                            duration: 5 * 1000,
+                        this.$buefy.toast.open({
+                            type: 'is-danger',
                             message: message,
-                            actionText: null,
-                            position: 'is-top'
+                            queue: false
                         })
                         this.$router.replace('/');
                     });

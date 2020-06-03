@@ -63,22 +63,12 @@
                 document.execCommand('copy');
                 document.body.removeChild(el);
 
-                this.$buefy.snackbar.open({
-                    message: 'Скопировано в буфер обмена',
-                    actionText: null,
-                    position: 'is-top',
-                    queue: false
-                })
+                this.$buefy.toast.open({message: 'Скопировано в буфер обмена', queue: false});
             },
             share() {
                 bridge.send("VKWebAppShare", {"link": this.link})
                     .then(() => {
-                        this.$buefy.snackbar.open({
-                            message: 'Приглашение отправлено',
-                            actionText: null,
-                            position: 'is-top',
-                            queue: false
-                        })
+                        this.$buefy.toast.open({message: 'Приглашение отправлено', queue: false});
                     }).catch((e) => {});
             },
         },

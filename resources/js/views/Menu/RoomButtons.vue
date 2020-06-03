@@ -80,17 +80,11 @@
                     onConfirm: () => {
                         axios.delete('/room').then((r) => {
                             this.$store.commit('deletedOwnRoom');
-                            this.$buefy.snackbar.open({
-                                message: r.data.message,
-                                actionText: null,
-                                position: 'is-top',
-                                queue: false
-                            })
+                            this.$buefy.toast.open({message: r.data.message, queue: false});
                         }).catch((e) => {
-                            this.$buefy.snackbar.open({
+                            this.$buefy.toast.open({
                                 message: e.response.data.message,
-                                actionText: null,
-                                position: 'is-top',
+                                type: 'is-danger',
                                 queue: false
                             })
                         });

@@ -111,11 +111,9 @@
                         this.$store.commit('createdOwnRoom', this.room);
                         this.$router.replace('/room');
                     }).catch(error => {
-                        this.$buefy.snackbar.open({
+                        this.$buefy.toast.open({
                             message: error.response.data.message,
                             type: 'is-danger',
-                            actionText: null,
-                            position: 'is-top',
                             queue: false
                         })
                     });
@@ -123,18 +121,11 @@
                     axios.put('/room', this.room).then(response => {
                         this.$store.commit('createdOwnRoom', this.room);
                         this.close();
-                        this.$buefy.snackbar.open({
-                            message: response.data.message,
-                            actionText: null,
-                            position: 'is-top',
-                            queue: false
-                        })
+                        this.$buefy.toast.open({message: response.data.message, queue: false});
                     }).catch(error => {
-                        this.$buefy.snackbar.open({
+                        this.$buefy.toast.open({
                             message: error.response.data.message,
                             type: 'is-danger',
-                            actionText: null,
-                            position: 'is-top',
                             queue: false
                         })
                     });
