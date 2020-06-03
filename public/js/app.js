@@ -34256,7 +34256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.player-div[data-v-e979f034] {\n    line-height: 0;\n    height: 56vw;\n    max-height: 320px;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.player-div[data-v-e979f034] {\n    line-height: 0;\n    height: 56vw;\n    max-height: 320px;\n    width: 100%;\n    background-color: #000000;\n}\n", ""]);
 
 // exports
 

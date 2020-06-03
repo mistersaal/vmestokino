@@ -148,5 +148,6 @@
         height: 56vw;
         max-height: 320px;
         width: 100%;
+        background-color: #000000;
     }
 </style>
