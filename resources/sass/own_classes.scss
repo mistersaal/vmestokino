@@ -3,6 +3,7 @@ body {
 }
 html, body {
     height: 100%;
+    width: 100%;
 }
 :root {
     --sat: env(safe-area-inset-top);
@@ -21,4 +22,16 @@ html, body {
 }
 .notices .toast {
     position: absolute;
+}
+.fade-enter-active, .fade-leave-active {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
 }

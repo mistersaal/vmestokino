@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <router-view v-if="isReady"></router-view>
+    <div style="height: 100%; width: 100%">
+        <transition name="fade">
+            <router-view v-if="isReady"></router-view>
+        </transition>
         <b-loading :is-full-page="true" :active="!isReady"></b-loading>
     </div>
 </template>

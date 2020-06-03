@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="line-height: 0">
+        <div class="player-div">
             <youtube-player
                 v-if="room.type === 'youtube'"
                 :url="room.url"
@@ -143,5 +143,10 @@
 </script>
 
 <style scoped>
-
+    .player-div {
+        line-height: 0;
+        height: 56vw;
+        max-height: 320px;
+        width: 100%;
+    }
 </style>
