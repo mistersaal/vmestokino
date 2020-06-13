@@ -22,8 +22,6 @@
             }
         },
         beforeCreate() {
-            bridge.send("VKWebAppInit", {})
-                .then(e => this.appInit = e.result);
             bridge.subscribe(e => {
                 if (e.detail.type === 'VKWebAppUpdateConfig') {
                     const scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
@@ -33,6 +31,8 @@
                     }
                 }
             });
+            bridge.send("VKWebAppInit", {})
+                .then(e => this.appInit = e.result);
             setTimeout(() => {
                 if (!this.appInit) {
                     this.$buefy.snackbar.open({

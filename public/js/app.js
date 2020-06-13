@@ -15139,9 +15139,6 @@ __webpack_require__.r(__webpack_exports__);
   beforeCreate: function beforeCreate() {
     var _this = this;
 
-    bridge.send("VKWebAppInit", {}).then(function (e) {
-      return _this.appInit = e.result;
-    });
     bridge.subscribe(function (e) {
       if (e.detail.type === 'VKWebAppUpdateConfig') {
         var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
@@ -15151,6 +15148,9 @@ __webpack_require__.r(__webpack_exports__);
           document.getElementById('light_scheme').media = "none";
         }
       }
+    });
+    bridge.send("VKWebAppInit", {}).then(function (e) {
+      return _this.appInit = e.result;
     });
     setTimeout(function () {
       if (!_this.appInit) {
