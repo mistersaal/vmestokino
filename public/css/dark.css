@@ -499,7 +499,7 @@ code {
 }
 
 hr {
-  background-color: #fff;
+  background-color: #000;
   border: none;
   display: block;
   height: 2px;
@@ -1813,13 +1813,13 @@ a.box:active {
 .button.is-text.is-hovered,
 .button.is-text:focus,
 .button.is-text.is-focused {
-  background-color: #fff;
+  background-color: #000;
   color: #363636;
 }
 
 .button.is-text:active,
 .button.is-text.is-active {
-  background-color: #f2f2f2;
+  background-color: black;
   color: #363636;
 }
 
@@ -3322,7 +3322,7 @@ fieldset[disabled] .button {
 }
 
 .content blockquote {
-  background-color: #fff;
+  background-color: #000;
   border-left: 5px solid #dbdbdb;
   padding: 1.25em 1.5em;
 }
@@ -3631,7 +3631,7 @@ fieldset[disabled] .button {
 }
 
 .notification {
-  background-color: #fff;
+  background-color: #000;
   border-radius: 7px;
   padding: 1.25rem 2.5rem 1.25rem 1.5rem;
   position: relative;
@@ -4228,7 +4228,7 @@ fieldset[disabled] .button {
 
 .tag:not(body) {
   align-items: center;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 7px;
   color: #4a4a4a;
   display: inline-flex;
@@ -4354,11 +4354,11 @@ fieldset[disabled] .button {
 
 .tag:not(body).is-delete:hover,
 .tag:not(body).is-delete:focus {
-  background-color: #f2f2f2;
+  background-color: black;
 }
 
 .tag:not(body).is-delete:active {
-  background-color: #e6e6e6;
+  background-color: black;
 }
 
 .tag:not(body).is-rounded {
@@ -4510,7 +4510,7 @@ a.tag:hover {
 
 .number {
   align-items: center;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 290486px;
   display: inline-flex;
   font-size: 1.25rem;
@@ -4602,8 +4602,8 @@ fieldset[disabled] .textarea,
 fieldset[disabled] .input,
 fieldset[disabled] .taginput .taginput-container.is-focusable,
 .taginput fieldset[disabled] .taginput-container.is-focusable {
-  background-color: #fff;
-  border-color: #fff;
+  background-color: #000;
+  border-color: #000;
   box-shadow: none;
   color: #7a7a7a;
 }
@@ -5020,7 +5020,7 @@ fieldset[disabled] .checkbox {
 
 .select select[disabled]:hover,
 fieldset[disabled] .select select:hover {
-  border-color: #fff;
+  border-color: #000;
 }
 
 .select select:not([multiple]) {
@@ -6379,7 +6379,7 @@ button.dropdown-item {
 a.dropdown-item:hover,
 .dropdown .dropdown-menu .has-link a:hover,
 button.dropdown-item:hover {
-  background-color: #fff;
+  background-color: #000;
   color: #0a0a0a;
 }
 
@@ -6546,7 +6546,7 @@ button.dropdown-item.is-active {
 }
 
 a.list-item {
-  background-color: #fff;
+  background-color: #000;
   cursor: pointer;
 }
 
@@ -6646,7 +6646,7 @@ a.list-item {
 }
 
 .menu-list a:hover {
-  background-color: #fff;
+  background-color: #000;
   color: #363636;
 }
 
@@ -6677,7 +6677,7 @@ a.list-item {
 }
 
 .message {
-  background-color: #fff;
+  background-color: #000;
   border-radius: 7px;
   font-size: 1rem;
 }
@@ -6942,7 +6942,7 @@ a.list-item {
 .modal-card-head,
 .modal-card-foot {
   align-items: center;
-  background-color: #fff;
+  background-color: #000;
   display: flex;
   flex-shrink: 0;
   justify-content: flex-start;
@@ -7905,7 +7905,7 @@ a.navbar-item.is-active,
 }
 
 .navbar-divider {
-  background-color: #fff;
+  background-color: #000;
   border: none;
   display: none;
   height: 2px;
@@ -8020,12 +8020,12 @@ a.navbar-item.is-active,
 
   .navbar.is-transparent .navbar-dropdown a.navbar-item:focus,
   .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
-    background-color: #fff;
+    background-color: #000;
     color: #0a0a0a;
   }
 
   .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
-    background-color: #fff;
+    background-color: #000;
     color: #3273dc;
   }
 
@@ -8121,12 +8121,12 @@ a.navbar-item.is-active,
 
   .navbar-dropdown a.navbar-item:focus,
   .navbar-dropdown a.navbar-item:hover {
-    background-color: #fff;
+    background-color: #000;
     color: #0a0a0a;
   }
 
   .navbar-dropdown a.navbar-item.is-active {
-    background-color: #fff;
+    background-color: #000;
     color: #3273dc;
   }
 
@@ -8418,7 +8418,7 @@ a.navbar-item.is-active,
 }
 
 .panel-heading {
-  background-color: #fff;
+  background-color: #000;
   border-radius: 7px 7px 0 0;
   color: #363636;
   font-size: 1.25em;
@@ -8491,7 +8491,7 @@ label.panel-block {
 
 a.panel-block:hover,
 label.panel-block:hover {
-  background-color: #fff;
+  background-color: #000;
 }
 
 .panel-icon {
@@ -8598,7 +8598,7 @@ label.panel-block:hover {
 }
 
 .tabs.is-boxed a:hover {
-  background-color: #fff;
+  background-color: #000;
   border-bottom-color: #dbdbdb;
 }
 
@@ -8622,7 +8622,7 @@ label.panel-block:hover {
 }
 
 .tabs.is-toggle a:hover {
-  background-color: #fff;
+  background-color: #000;
   border-color: #b5b5b5;
   z-index: 2;
 }
@@ -14367,7 +14367,7 @@ span[data-tooltip].has-tooltip-danger {
 .autocomplete .dropdown-item.is-hovered,
 .autocomplete .dropdown .dropdown-menu .has-link a.is-hovered,
 .dropdown .dropdown-menu .has-link .autocomplete a.is-hovered {
-  background: #fff;
+  background: #000;
   color: #0a0a0a;
 }
 
@@ -14612,10 +14612,13 @@ span[data-tooltip].has-tooltip-danger {
   outline: none;
   display: inline-flex;
   align-items: center;
+}
+
+.b-checkbox.checkbox:not(.button) {
   margin-right: 0.5em;
 }
 
-.b-checkbox.checkbox + .checkbox:last-child {
+.b-checkbox.checkbox:not(.button) + .checkbox:last-child {
   margin-right: 0;
 }
 
@@ -15082,6 +15085,43 @@ span[data-tooltip].has-tooltip-danger {
   width: 100%;
 }
 
+.b-clockpicker .dropdown .input[readonly],
+.b-clockpicker .dropdown .taginput [readonly].taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown [readonly].taginput-container.is-focusable,
+.b-clockpicker .dropdown-trigger .input[readonly],
+.b-clockpicker .dropdown-trigger .taginput [readonly].taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown-trigger [readonly].taginput-container.is-focusable {
+  cursor: pointer;
+  box-shadow: 0;
+}
+
+.b-clockpicker .dropdown .input[readonly]:focus,
+.b-clockpicker .dropdown .taginput [readonly].taginput-container.is-focusable:focus,
+.taginput .b-clockpicker .dropdown [readonly].taginput-container.is-focusable:focus,
+.b-clockpicker .dropdown .input[readonly].is-focused,
+.b-clockpicker .dropdown .taginput [readonly].is-focused.taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown [readonly].is-focused.taginput-container.is-focusable,
+.b-clockpicker .dropdown .input[readonly]:active,
+.b-clockpicker .dropdown .taginput [readonly].taginput-container.is-focusable:active,
+.taginput .b-clockpicker .dropdown [readonly].taginput-container.is-focusable:active,
+.b-clockpicker .dropdown .input[readonly].is-active,
+.b-clockpicker .dropdown .taginput [readonly].is-active.taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown [readonly].is-active.taginput-container.is-focusable,
+.b-clockpicker .dropdown-trigger .input[readonly]:focus,
+.b-clockpicker .dropdown-trigger .taginput [readonly].taginput-container.is-focusable:focus,
+.taginput .b-clockpicker .dropdown-trigger [readonly].taginput-container.is-focusable:focus,
+.b-clockpicker .dropdown-trigger .input[readonly].is-focused,
+.b-clockpicker .dropdown-trigger .taginput [readonly].is-focused.taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown-trigger [readonly].is-focused.taginput-container.is-focusable,
+.b-clockpicker .dropdown-trigger .input[readonly]:active,
+.b-clockpicker .dropdown-trigger .taginput [readonly].taginput-container.is-focusable:active,
+.taginput .b-clockpicker .dropdown-trigger [readonly].taginput-container.is-focusable:active,
+.b-clockpicker .dropdown-trigger .input[readonly].is-active,
+.b-clockpicker .dropdown-trigger .taginput [readonly].is-active.taginput-container.is-focusable,
+.taginput .b-clockpicker .dropdown-trigger [readonly].is-active.taginput-container.is-focusable {
+  box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+}
+
 .b-clockpicker .dropdown-item,
 .b-clockpicker .dropdown .dropdown-menu .has-link a,
 .dropdown .dropdown-menu .has-link .b-clockpicker a {
@@ -15327,6 +15367,7 @@ span[data-tooltip].has-tooltip-danger {
 .datepicker .dropdown-trigger .input[readonly],
 .datepicker .dropdown-trigger .taginput [readonly].taginput-container.is-focusable,
 .taginput .datepicker .dropdown-trigger [readonly].taginput-container.is-focusable {
+  cursor: pointer;
   box-shadow: 0;
 }
 
@@ -15444,7 +15485,7 @@ span[data-tooltip].has-tooltip-danger {
 
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable:hover:not(.is-selected),
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable:focus:not(.is-selected) {
-  background-color: #fff;
+  background-color: #000;
   color: #0a0a0a;
   cursor: pointer;
 }
@@ -15457,7 +15498,7 @@ span[data-tooltip].has-tooltip-danger {
 }
 
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-within-hovered {
-  background-color: #fff;
+  background-color: #000;
   color: #0a0a0a;
   border-radius: 0;
 }
@@ -16175,7 +16216,7 @@ span[data-tooltip].has-tooltip-danger {
   height: 100%;
   max-height: 100vh;
   margin: 0;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .modal .animation-content {
@@ -16547,10 +16588,13 @@ span[data-tooltip].has-tooltip-danger {
   outline: none;
   display: inline-flex;
   align-items: center;
+}
+
+.b-radio.radio:not(.button) {
   margin-right: 0.5em;
 }
 
-.b-radio.radio + .radio:last-child {
+.b-radio.radio:not(.button) + .radio:last-child {
   margin-right: 0;
 }
 
@@ -16908,15 +16952,12 @@ span[data-tooltip].has-tooltip-danger {
 }
 
 .b-skeleton {
-  display: flex;
   width: 100%;
 }
 
 .b-skeleton > .b-skeleton-item {
   background: linear-gradient(90deg, #dbdbdb 25%, rgba(219, 219, 219, 0.5) 50%, #dbdbdb 75%);
   background-size: 400% 100%;
-  display: inline-flex;
-  line-height: 1;
   width: 100%;
 }
 
@@ -16928,6 +16969,10 @@ span[data-tooltip].has-tooltip-danger {
   content: "\A0";
 }
 
+.b-skeleton > .b-skeleton-item + .b-skeleton-item {
+  margin-top: 0.5rem;
+}
+
 .b-skeleton.is-animated > .b-skeleton-item {
   -webkit-animation: skeleton-loading 1.5s infinite;
           animation: skeleton-loading 1.5s infinite;
@@ -16935,6 +16980,22 @@ span[data-tooltip].has-tooltip-danger {
 
 .b-skeleton + .b-skeleton {
   margin-top: 0.5rem;
+}
+
+.b-skeleton > .b-skeleton-item {
+  line-height: 1rem;
+}
+
+.b-skeleton.is-small > .b-skeleton-item {
+  line-height: 0.75rem;
+}
+
+.b-skeleton.is-medium > .b-skeleton-item {
+  line-height: 1.25rem;
+}
+
+.b-skeleton.is-large > .b-skeleton-item {
+  line-height: 1.5rem;
 }
 
 @-webkit-keyframes skeleton-loading {
@@ -16958,7 +17019,7 @@ span[data-tooltip].has-tooltip-danger {
 }
 
 .b-sidebar .sidebar-content {
-  background-color: #fff;
+  background-color: #000;
   box-shadow: 5px 0px 13px 3px rgba(10, 10, 10, 0.1);
   width: 260px;
   z-index: 41;
@@ -17030,15 +17091,15 @@ span[data-tooltip].has-tooltip-danger {
   width: 80px;
 }
 
-.b-sidebar .sidebar-content.is-mini-expand:hover {
+.b-sidebar .sidebar-content.is-mini.is-mini-expand:hover {
   transition: width 150ms ease-out;
 }
 
-.b-sidebar .sidebar-content.is-mini-expand:hover:not(.is-fullwidth) {
+.b-sidebar .sidebar-content.is-mini.is-mini-expand:hover:not(.is-fullwidth) {
   width: 260px;
 }
 
-.b-sidebar .sidebar-content.is-mini-expand:hover:not(.is-fullwidth).is-mini-expand-fixed {
+.b-sidebar .sidebar-content.is-mini.is-mini-expand:hover:not(.is-fullwidth).is-mini-expand-fixed {
   position: fixed;
 }
 
@@ -17071,11 +17132,11 @@ span[data-tooltip].has-tooltip-danger {
     width: 80px;
   }
 
-  .b-sidebar .sidebar-content.is-mini-expand:hover:not(.is-fullwidth-mobile) {
+  .b-sidebar .sidebar-content.is-mini-mobile.is-mini-expand:hover:not(.is-fullwidth-mobile) {
     width: 260px;
   }
 
-  .b-sidebar .sidebar-content.is-mini-expand:hover:not(.is-fullwidth-mobile).is-mini-expand-fixed {
+  .b-sidebar .sidebar-content.is-mini-mobile.is-mini-expand:hover:not(.is-fullwidth-mobile).is-mini-expand-fixed {
     position: fixed;
   }
 
@@ -17753,6 +17814,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .b-steps .steps.has-label-right .step-items .step-item .step-link > .step-details,
 .b-steps .steps.has-label-left .step-items .step-item .step-link > .step-details {
+  background-color: white;
   padding: 0.2em;
 }
 
@@ -17778,6 +17840,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-steps .steps .step-items .step-item .step-details .step-title {
   font-size: 1.2rem;
   font-weight: 600;
+  line-height: 1rem;
 }
 
 .b-steps .steps .step-items .step-item:not(:first-child)::before,
@@ -17846,6 +17909,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-steps.is-small .steps .step-items .step-item .step-details .step-title {
   font-size: 0.9rem;
   font-weight: 600;
+  line-height: 0.75rem;
 }
 
 .b-steps.is-small .steps .step-items .step-item:not(:first-child)::before,
@@ -17914,6 +17978,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-steps.is-medium .steps .step-items .step-item .step-details .step-title {
   font-size: 1.5rem;
   font-weight: 600;
+  line-height: 1.25rem;
 }
 
 .b-steps.is-medium .steps .step-items .step-item:not(:first-child)::before,
@@ -17982,6 +18047,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-steps.is-large .steps .step-items .step-item .step-details .step-title {
   font-size: 1.8rem;
   font-weight: 600;
+  line-height: 1.5rem;
 }
 
 .b-steps.is-large .steps .step-items .step-item:not(:first-child)::before,
@@ -18059,6 +18125,76 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background-position: left bottom;
 }
 
+.b-steps.is-vertical > .steps .step-items .step-item.is-white::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-white::after {
+  background: linear-gradient(to top, #dbdbdb 50%, white 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-black::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-black::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #0a0a0a 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-light::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-light::after {
+  background: linear-gradient(to top, #dbdbdb 50%, whitesmoke 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-dark::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-dark::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #363636 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-primary::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-primary::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #00d1b2 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-link::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-link::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #3273dc 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-info::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-info::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #209cee 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-success::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-success::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #23d160 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-warning::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-warning::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #ffdd57 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
+.b-steps.is-vertical > .steps .step-items .step-item.is-danger::before,
+.b-steps.is-vertical > .steps .step-items .step-item.is-danger::after {
+  background: linear-gradient(to top, #dbdbdb 50%, #ff3860 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+
 .b-steps.is-vertical > .steps .step-items .step-item:not(:first-child)::before,
 .b-steps.is-vertical > .steps .step-items .step-item:only-child::before {
   height: 100%;
@@ -18095,6 +18231,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .b-steps.is-vertical > .steps.has-label-left .step-items .step-item {
   justify-content: flex-end;
+}
+
+.b-steps.is-vertical > .steps:not(.has-label-right):not(.has-label-left) .step-items .step-item .step-link > .step-details {
+  background-color: white;
 }
 
 .b-steps.is-vertical > .step-content {
@@ -18169,13 +18309,123 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   transition: background 150ms ease-out, box-shadow 150ms ease-out;
 }
 
+.switch input[type=checkbox] + .check.is-white-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: white;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-black-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #0a0a0a;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-light-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: whitesmoke;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-dark-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #363636;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-primary-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #00d1b2;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-link-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #3273dc;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-info-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #209cee;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-success-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #23d160;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-warning-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #ffdd57;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
+.switch input[type=checkbox] + .check.is-danger-passive,
+.switch input[type=checkbox] + .check:hover {
+  background: #ff3860;
+}
+
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check,
+.switch .taginput input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check,
+.taginput .switch input[type=checkbox] + .check[type=checkbox].taginput-container.is-focusable + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
+
 .switch input[type=checkbox] + .check:before {
   content: "";
   display: block;
   border-radius: 7px;
   width: 1.175em;
   height: 1.175em;
-  background: #fff;
+  background: #000;
   box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
   transition: transform 150ms ease-out;
   will-change: transform;
@@ -18249,6 +18499,56 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   box-shadow: 0 0 0.5em rgba(122, 122, 122, 0.6);
 }
 
+.switch input[type=checkbox]:focus + .check.is-white-passive,
+.switch input[type=checkbox]:active + .check.is-white-passive {
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-black-passive,
+.switch input[type=checkbox]:active + .check.is-black-passive {
+  box-shadow: 0 0 0.5em rgba(10, 10, 10, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-light-passive,
+.switch input[type=checkbox]:active + .check.is-light-passive {
+  box-shadow: 0 0 0.5em rgba(245, 245, 245, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-dark-passive,
+.switch input[type=checkbox]:active + .check.is-dark-passive {
+  box-shadow: 0 0 0.5em rgba(54, 54, 54, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-primary-passive,
+.switch input[type=checkbox]:active + .check.is-primary-passive {
+  box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-link-passive,
+.switch input[type=checkbox]:active + .check.is-link-passive {
+  box-shadow: 0 0 0.5em rgba(50, 115, 220, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-info-passive,
+.switch input[type=checkbox]:active + .check.is-info-passive {
+  box-shadow: 0 0 0.5em rgba(32, 156, 238, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-success-passive,
+.switch input[type=checkbox]:active + .check.is-success-passive {
+  box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-warning-passive,
+.switch input[type=checkbox]:active + .check.is-warning-passive {
+  box-shadow: 0 0 0.5em rgba(255, 221, 87, 0.8);
+}
+
+.switch input[type=checkbox]:focus + .check.is-danger-passive,
+.switch input[type=checkbox]:active + .check.is-danger-passive {
+  box-shadow: 0 0 0.5em rgba(255, 56, 96, 0.8);
+}
+
 .switch input[type=checkbox]:focus:checked + .check,
 .switch input[type=checkbox]:active:checked + .check {
   box-shadow: 0 0 0.5em rgba(0, 209, 178, 0.8);
@@ -18312,6 +18612,46 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background: rgba(181, 181, 181, 0.9);
 }
 
+.switch:hover input[type=checkbox] + .check.is-white-passive {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-black-passive {
+  background: rgba(10, 10, 10, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-light-passive {
+  background: rgba(245, 245, 245, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-dark-passive {
+  background: rgba(54, 54, 54, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-primary-passive {
+  background: rgba(0, 209, 178, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-link-passive {
+  background: rgba(50, 115, 220, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-info-passive {
+  background: rgba(32, 156, 238, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-success-passive {
+  background: rgba(35, 209, 96, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-warning-passive {
+  background: rgba(255, 221, 87, 0.9);
+}
+
+.switch:hover input[type=checkbox] + .check.is-danger-passive {
+  background: rgba(255, 56, 96, 0.9);
+}
+
 .switch:hover input[type=checkbox]:checked + .check {
   background: rgba(0, 209, 178, 0.9);
 }
@@ -18372,6 +18712,126 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch.is-outlined input[type=checkbox] + .check {
   background: transparent;
   border: 0.1rem solid #b5b5b5;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-white-passive {
+  border: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-white-passive:before {
+  background: white;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-white-passive:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-black-passive {
+  border: 0.1rem solid rgba(10, 10, 10, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-black-passive:before {
+  background: #0a0a0a;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-black-passive:hover {
+  border-color: rgba(10, 10, 10, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-light-passive {
+  border: 0.1rem solid rgba(245, 245, 245, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-light-passive:before {
+  background: whitesmoke;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-light-passive:hover {
+  border-color: rgba(245, 245, 245, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-dark-passive {
+  border: 0.1rem solid rgba(54, 54, 54, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-dark-passive:before {
+  background: #363636;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-dark-passive:hover {
+  border-color: rgba(54, 54, 54, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-primary-passive {
+  border: 0.1rem solid rgba(0, 209, 178, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-primary-passive:before {
+  background: #00d1b2;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-primary-passive:hover {
+  border-color: rgba(0, 209, 178, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-link-passive {
+  border: 0.1rem solid rgba(50, 115, 220, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-link-passive:before {
+  background: #3273dc;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-link-passive:hover {
+  border-color: rgba(50, 115, 220, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-info-passive {
+  border: 0.1rem solid rgba(32, 156, 238, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-info-passive:before {
+  background: #209cee;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-info-passive:hover {
+  border-color: rgba(32, 156, 238, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-success-passive {
+  border: 0.1rem solid rgba(35, 209, 96, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-success-passive:before {
+  background: #23d160;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-success-passive:hover {
+  border-color: rgba(35, 209, 96, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-warning-passive {
+  border: 0.1rem solid rgba(255, 221, 87, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-warning-passive:before {
+  background: #ffdd57;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-warning-passive:hover {
+  border-color: rgba(255, 221, 87, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-danger-passive {
+  border: 0.1rem solid rgba(255, 56, 96, 0.9);
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-danger-passive:before {
+  background: #ff3860;
+}
+
+.switch.is-outlined input[type=checkbox] + .check.is-danger-passive:hover {
+  border-color: rgba(255, 56, 96, 0.9);
 }
 
 .switch.is-outlined input[type=checkbox] + .check:before {
@@ -18689,7 +19149,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table.is-bordered th.is-current-sort,
 .b-table .table.is-bordered th.is-sortable:hover {
   border-color: #dbdbdb;
-  background: #fff;
+  background: #000;
 }
 
 .b-table .table td.is-sticky {
@@ -18771,7 +19231,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
     width: auto;
     justify-content: space-between;
     text-align: right;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #000;
   }
 
   .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td:before {
@@ -18828,7 +19288,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   width: auto;
   justify-content: space-between;
   text-align: right;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #000;
 }
 
 .b-table .table-wrapper.is-card-list tr:not(.detail):not(.is-empty):not(.table-footer) td:before {
@@ -19184,6 +19644,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .timepicker .dropdown-trigger .input[readonly],
 .timepicker .dropdown-trigger .taginput [readonly].taginput-container.is-focusable,
 .taginput .timepicker .dropdown-trigger [readonly].taginput-container.is-focusable {
+  cursor: pointer;
   box-shadow: 0;
 }
 
