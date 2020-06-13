@@ -40,7 +40,6 @@
                     </b-field>
                     <b-checkbox :value="!room.everyone_control"
                                 @input="room.everyone_control = !$event"
-                                type="is-primary"
                     >
                         Видео управляет только создатель комнаты
                     </b-checkbox>

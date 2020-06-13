@@ -3,7 +3,7 @@
         <template slot="brand">
             <b-navbar-item
                 tag="h1"
-                class="title is-4 has-text-primary has-text-weight-bold"
+                class="title is-4 has-text-weight-bold"
                 style="cursor: default"
             >
                 Вместо кино

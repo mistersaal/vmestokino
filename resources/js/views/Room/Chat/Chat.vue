@@ -35,7 +35,7 @@
             </form>
         </section>
         <div class="scrolldown-button" v-show="needScrollDown">
-            <b-button size="is-large" class="has-text-primary" rounded icon-left="chevron-down" @click="scrollDown"/>
+            <b-button size="is-large" rounded icon-left="chevron-down" @click="scrollDown"/>
         </div>
     </div>
 </template>

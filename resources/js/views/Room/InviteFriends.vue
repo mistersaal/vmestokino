@@ -8,7 +8,7 @@
     >
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title has-text-weight-bold has-text-primary">
+                <p class="modal-card-title has-text-weight-bold">
                     Пригласить друзей
                 </p>
             </header>

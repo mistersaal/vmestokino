@@ -15144,12 +15144,10 @@ __webpack_require__.r(__webpack_exports__);
     });
     bridge.subscribe(function (e) {
       if (e.detail.type === 'VKWebAppUpdateConfig') {
-        var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
-
-        if (scheme !== 'client_light') {
-          document.getElementById('light_scheme').media = "none";
-          document.getElementById('dark_scheme').media = "";
-        }
+        var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light'; // if (scheme !== 'client_light') {
+        //     document.getElementById('light_scheme').media = "none";
+        //     document.getElementById('dark_scheme').media = "";
+        // }
       }
     });
     setTimeout(function () {
@@ -15202,7 +15200,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -34434,7 +34431,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.hoverable[data-v-ffeaf526]:hover {\n    background-color: #fafafa !important;\n}\n", ""]);
+exports.push([module.i, "\n.hoverable[data-v-ffeaf526]:hover {\n    color: inherit !important;\n    background-color: inherit !important;\n}\n", ""]);
 
 // exports
 
@@ -62590,10 +62587,7 @@ var render = function() {
                 _c(
                   "b-checkbox",
                   {
-                    attrs: {
-                      value: !_vm.room.everyone_control,
-                      type: "is-primary"
-                    },
+                    attrs: { value: !_vm.room.everyone_control },
                     on: {
                       input: function($event) {
                         _vm.room.everyone_control = !$event
@@ -62936,7 +62930,7 @@ var render = function() {
           _c(
             "b-navbar-item",
             {
-              staticClass: "title is-4 has-text-primary has-text-weight-bold",
+              staticClass: "title is-4 has-text-weight-bold",
               staticStyle: { cursor: "default" },
               attrs: { tag: "h1" }
             },
@@ -63260,7 +63254,6 @@ var render = function() {
       },
       [
         _c("b-button", {
-          staticClass: "has-text-primary",
           attrs: { size: "is-large", rounded: "", "icon-left": "chevron-down" },
           on: { click: _vm.scrollDown }
         })
@@ -63484,14 +63477,9 @@ var render = function() {
     [
       _c("div", { staticClass: "modal-card" }, [
         _c("header", { staticClass: "modal-card-head" }, [
-          _c(
-            "p",
-            {
-              staticClass:
-                "modal-card-title has-text-weight-bold has-text-primary"
-            },
-            [_vm._v("\n                Пригласить друзей\n            ")]
-          )
+          _c("p", { staticClass: "modal-card-title has-text-weight-bold" }, [
+            _vm._v("\n                Пригласить друзей\n            ")
+          ])
         ]),
         _vm._v(" "),
         _c(
@@ -63618,23 +63606,14 @@ var render = function() {
           _c(
             "b-navbar-item",
             { staticClass: "hoverable", on: { click: _vm.back } },
-            [
-              _c("b-icon", {
-                staticClass: "has-text-primary",
-                attrs: { icon: "arrow-left" }
-              })
-            ],
+            [_c("b-icon", { attrs: { icon: "arrow-left" } })],
             1
           ),
           _vm._v(" "),
           _c("b-navbar-item", { staticStyle: { cursor: "default" } }, [
-            _c(
-              "h1",
-              {
-                staticClass: "title is-4 has-text-primary has-text-weight-bold"
-              },
-              [_vm._v("Комната")]
-            )
+            _c("h1", { staticClass: "title is-4 has-text-weight-bold" }, [
+              _vm._v("Комната")
+            ])
           ])
         ],
         1

@@ -2,10 +2,10 @@
     <b-navbar :mobile-burger="false">
         <template slot="brand">
             <b-navbar-item @click="back" class="hoverable">
-                <b-icon icon="arrow-left" class="has-text-primary"></b-icon>
+                <b-icon icon="arrow-left"></b-icon>
             </b-navbar-item>
             <b-navbar-item style="cursor: default">
-                <h1 class="title is-4 has-text-primary has-text-weight-bold">Комната</h1>
+                <h1 class="title is-4 has-text-weight-bold">Комната</h1>
             </b-navbar-item>
         </template>
     </b-navbar>
@@ -28,6 +28,7 @@
 
 <style scoped>
     .hoverable:hover {
-        background-color: #fafafa !important;
+        color: inherit !important;
+        background-color: inherit !important;
     }
 </style>
