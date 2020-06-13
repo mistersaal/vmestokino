@@ -13,7 +13,7 @@ class LoginController extends Controller
             return [
                 'newUser' => false,
                 'room' => $user->room,
-                'user' => $user,
+                'user' => $user->withoutRelations(),
             ];
         } else {
             $user = $userService->createNewUser(auth()->getVkIdentifier());
