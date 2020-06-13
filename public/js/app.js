@@ -15489,7 +15489,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$buefy.toast.open({
           message: 'Номер или пароль неверный!',
           type: 'is-danger',
-          duration: 3000
+          queue: false
         });
 
         _this.isLoading = false;

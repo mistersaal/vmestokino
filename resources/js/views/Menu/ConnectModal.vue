@@ -79,7 +79,7 @@
                         this.$buefy.toast.open({
                             message: 'Номер или пароль неверный!',
                             type: 'is-danger',
-                            duration: 3000
+                            queue: false
                         });
                         this.isLoading = false;
                     });
