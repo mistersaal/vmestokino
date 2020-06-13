@@ -15136,7 +15136,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.appInit && !this.isLoading;
     }
   },
-  created: function created() {
+  beforeCreate: function beforeCreate() {
     var _this = this;
 
     bridge.send("VKWebAppInit", {}).then(function (e) {
@@ -15147,8 +15147,8 @@ __webpack_require__.r(__webpack_exports__);
         var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
 
         if (scheme !== 'client_light') {
-          document.getElementById('light_scheme').media = "none";
           document.getElementById('dark_scheme').media = "";
+          document.getElementById('light_scheme').media = "none";
         }
       }
     });
