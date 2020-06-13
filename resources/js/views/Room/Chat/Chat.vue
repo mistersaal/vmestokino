@@ -14,7 +14,7 @@
                 />
             </div>
         </section>
-        <section class="section message-input" :style="{'padding-bottom': iphonePaddingBottom + 'px'}">
+        <section class="section message-input gray-in-dark-mode" :style="{'padding-bottom': iphonePaddingBottom + 'px'}">
             <form @submit.prevent="send">
                 <b-field>
                     <b-input expanded

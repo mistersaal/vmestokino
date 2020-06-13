@@ -15144,10 +15144,12 @@ __webpack_require__.r(__webpack_exports__);
     });
     bridge.subscribe(function (e) {
       if (e.detail.type === 'VKWebAppUpdateConfig') {
-        var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light'; // if (scheme !== 'client_light') {
-        //     document.getElementById('light_scheme').media = "none";
-        //     document.getElementById('dark_scheme').media = "";
-        // }
+        var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
+
+        if (scheme !== 'client_light') {
+          document.getElementById('light_scheme').media = "none";
+          document.getElementById('dark_scheme').media = "";
+        }
       }
     });
     setTimeout(function () {
@@ -63180,7 +63182,7 @@ var render = function() {
     _c(
       "section",
       {
-        staticClass: "section message-input",
+        staticClass: "section message-input gray-in-dark-mode",
         style: { "padding-bottom": _vm.iphonePaddingBottom + "px" }
       },
       [
@@ -63703,7 +63705,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "level is-mobile" }, [
+  return _c("div", { staticClass: "level is-mobile gray-in-dark-mode" }, [
     _c("div", { staticClass: "level-left" }, [
       _c(
         "div",

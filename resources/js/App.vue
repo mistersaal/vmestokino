@@ -27,10 +27,10 @@
             bridge.subscribe(e => {
                 if (e.detail.type === 'VKWebAppUpdateConfig') {
                     const scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
-                    // if (scheme !== 'client_light') {
-                    //     document.getElementById('light_scheme').media = "none";
-                    //     document.getElementById('dark_scheme').media = "";
-                    // }
+                    if (scheme !== 'client_light') {
+                        document.getElementById('light_scheme').media = "none";
+                        document.getElementById('dark_scheme').media = "";
+                    }
                 }
             });
             setTimeout(() => {

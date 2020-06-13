@@ -1,5 +1,5 @@
 <template>
-    <div class="level is-mobile">
+    <div class="level is-mobile gray-in-dark-mode">
         <div class="level-left">
             <div class="level-item">
                 <room-users :users="users"></room-users>

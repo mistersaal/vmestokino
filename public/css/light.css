@@ -3323,7 +3323,7 @@ fieldset[disabled] .button {
 
 .content blockquote {
   background-color: #fff;
-  border-left: 5px solid #dbdbdb;
+  border-left: 5px solid #fff;
   padding: 1.25em 1.5em;
 }
 
@@ -3413,7 +3413,7 @@ fieldset[disabled] .button {
 
 .content table td,
 .content table th {
-  border: 1px solid #dbdbdb;
+  border: 1px solid #fff;
   border-width: 0 0 1px;
   padding: 0.5em 0.75em;
   vertical-align: top;
@@ -3730,7 +3730,7 @@ fieldset[disabled] .button {
 }
 
 .progress::-webkit-progress-bar {
-  background-color: #dbdbdb;
+  background-color: #fff;
 }
 
 .progress::-webkit-progress-value {
@@ -3759,7 +3759,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-white:indeterminate {
-  background-image: linear-gradient(to right, white 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, white 30%, #fff 30%);
 }
 
 .progress.is-black::-webkit-progress-value {
@@ -3775,7 +3775,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-black:indeterminate {
-  background-image: linear-gradient(to right, #0a0a0a 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #0a0a0a 30%, #fff 30%);
 }
 
 .progress.is-light::-webkit-progress-value {
@@ -3791,7 +3791,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-light:indeterminate {
-  background-image: linear-gradient(to right, whitesmoke 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, whitesmoke 30%, #fff 30%);
 }
 
 .progress.is-dark::-webkit-progress-value {
@@ -3807,7 +3807,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-dark:indeterminate {
-  background-image: linear-gradient(to right, #363636 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #363636 30%, #fff 30%);
 }
 
 .progress.is-primary::-webkit-progress-value {
@@ -3823,7 +3823,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-primary:indeterminate {
-  background-image: linear-gradient(to right, #00d1b2 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #00d1b2 30%, #fff 30%);
 }
 
 .progress.is-link::-webkit-progress-value {
@@ -3839,7 +3839,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-link:indeterminate {
-  background-image: linear-gradient(to right, #3273dc 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #3273dc 30%, #fff 30%);
 }
 
 .progress.is-info::-webkit-progress-value {
@@ -3855,7 +3855,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-info:indeterminate {
-  background-image: linear-gradient(to right, #209cee 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #209cee 30%, #fff 30%);
 }
 
 .progress.is-success::-webkit-progress-value {
@@ -3871,7 +3871,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-success:indeterminate {
-  background-image: linear-gradient(to right, #23d160 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #23d160 30%, #fff 30%);
 }
 
 .progress.is-warning::-webkit-progress-value {
@@ -3887,7 +3887,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-warning:indeterminate {
-  background-image: linear-gradient(to right, #ffdd57 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #ffdd57 30%, #fff 30%);
 }
 
 .progress.is-danger::-webkit-progress-value {
@@ -3903,7 +3903,7 @@ fieldset[disabled] .button {
 }
 
 .progress.is-danger:indeterminate {
-  background-image: linear-gradient(to right, #ff3860 30%, #dbdbdb 30%);
+  background-image: linear-gradient(to right, #ff3860 30%, #fff 30%);
 }
 
 .progress:indeterminate {
@@ -3915,8 +3915,8 @@ fieldset[disabled] .button {
           animation-name: moveIndeterminate;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
-  background-color: #dbdbdb;
-  background-image: linear-gradient(to right, #4a4a4a 30%, #dbdbdb 30%);
+  background-color: #fff;
+  background-image: linear-gradient(to right, #4a4a4a 30%, #fff 30%);
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 150% 150%;
@@ -5686,7 +5686,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .file-label:hover .file-name {
-  border-color: #d5d5d5;
+  border-color: #f9f9f9;
 }
 
 .file-label:active .file-cta {
@@ -5695,7 +5695,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .file-label:active .file-name {
-  border-color: #cfcfcf;
+  border-color: #f2f2f2;
 }
 
 .file-input {
@@ -5710,7 +5710,7 @@ fieldset[disabled] .select select:hover {
 
 .file-cta,
 .file-name {
-  border-color: #dbdbdb;
+  border-color: #fff;
   border-radius: 7px;
   font-size: 1em;
   padding-left: 1em;
@@ -5724,7 +5724,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .file-name {
-  border-color: #dbdbdb;
+  border-color: #fff;
   border-style: solid;
   border-width: 1px 1px 1px 0;
   display: block;
@@ -6293,7 +6293,7 @@ fieldset[disabled] .select select:hover {
 
 .card-footer {
   background-color: transparent;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid #fff;
   align-items: stretch;
   display: flex;
 }
@@ -6309,7 +6309,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .card-footer-item:not(:last-child) {
-  border-right: 1px solid #dbdbdb;
+  border-right: 1px solid #fff;
 }
 
 .card .media:not(:last-child) {
@@ -6391,7 +6391,7 @@ button.dropdown-item.is-active {
 }
 
 .dropdown-divider {
-  background-color: #dbdbdb;
+  background-color: #fff;
   border: none;
   display: block;
   height: 1px;
@@ -6537,7 +6537,7 @@ button.dropdown-item.is-active {
 }
 
 .list-item:not(:last-child) {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #fff;
 }
 
 .list-item.is-active {
@@ -6561,7 +6561,7 @@ a.list-item {
 }
 
 .media .media {
-  border-top: 1px solid rgba(219, 219, 219, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   padding-top: 0.75rem;
 }
@@ -6580,7 +6580,7 @@ a.list-item {
 }
 
 .media + .media {
-  border-top: 1px solid rgba(219, 219, 219, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
   margin-top: 1rem;
   padding-top: 1rem;
 }
@@ -6656,7 +6656,7 @@ a.list-item {
 }
 
 .menu-list li ul {
-  border-left: 1px solid #dbdbdb;
+  border-left: 1px solid #fff;
   margin: 0.75em;
   padding-left: 0.75em;
 }
@@ -6869,7 +6869,7 @@ a.list-item {
 }
 
 .message-body {
-  border-color: #dbdbdb;
+  border-color: #fff;
   border-radius: 7px;
   border-style: solid;
   border-width: 0 0 0 4px;
@@ -6951,7 +6951,7 @@ a.list-item {
 }
 
 .modal-card-head {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #fff;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
@@ -6967,7 +6967,7 @@ a.list-item {
 .modal-card-foot {
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid #fff;
 }
 
 .modal-card-foot .button:not(:last-child) {
@@ -8052,7 +8052,7 @@ a.navbar-item.is-active,
   }
 
   .navbar-item.has-dropdown-up .navbar-dropdown {
-    border-bottom: 2px solid #dbdbdb;
+    border-bottom: 2px solid #fff;
     border-radius: 12px 12px 0 0;
     border-top: none;
     bottom: 100%;
@@ -8099,7 +8099,7 @@ a.navbar-item.is-active,
     background-color: white;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    border-top: 2px solid #dbdbdb;
+    border-top: 2px solid #fff;
     box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
     display: none;
     font-size: 0.875rem;
@@ -8406,15 +8406,15 @@ a.navbar-item.is-active,
 .panel-heading,
 .panel-tabs,
 .panel-block {
-  border-bottom: 1px solid #dbdbdb;
-  border-left: 1px solid #dbdbdb;
-  border-right: 1px solid #dbdbdb;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 
 .panel-heading:first-child,
 .panel-tabs:first-child,
 .panel-block:first-child {
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid #fff;
 }
 
 .panel-heading {
@@ -8435,7 +8435,7 @@ a.navbar-item.is-active,
 }
 
 .panel-tabs a {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #fff;
   margin-bottom: -1px;
   padding: 0.5em;
 }
@@ -8524,7 +8524,7 @@ label.panel-block:hover {
 
 .tabs a {
   align-items: center;
-  border-bottom-color: #dbdbdb;
+  border-bottom-color: #fff;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   color: #4a4a4a;
@@ -8551,7 +8551,7 @@ label.panel-block:hover {
 
 .tabs ul {
   align-items: center;
-  border-bottom-color: #dbdbdb;
+  border-bottom-color: #fff;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   display: flex;
@@ -8599,12 +8599,12 @@ label.panel-block:hover {
 
 .tabs.is-boxed a:hover {
   background-color: #fff;
-  border-bottom-color: #dbdbdb;
+  border-bottom-color: #fff;
 }
 
 .tabs.is-boxed li.is-active a {
   background-color: white;
-  border-color: #dbdbdb;
+  border-color: #fff;
   border-bottom-color: transparent !important;
 }
 
@@ -8614,7 +8614,7 @@ label.panel-block:hover {
 }
 
 .tabs.is-toggle a {
-  border-color: #dbdbdb;
+  border-color: #fff;
   border-style: solid;
   border-width: 1px;
   margin-bottom: 0;
@@ -19380,12 +19380,12 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .b-tabs.is-vertical > .tabs.is-boxed li a {
   border-bottom-color: transparent !important;
-  border-right-color: #dbdbdb !important;
+  border-right-color: #fff !important;
   border-radius: 7px 0 0 7px;
 }
 
 .b-tabs.is-vertical > .tabs.is-boxed li.is-active a {
-  border-bottom-color: #dbdbdb !important;
+  border-bottom-color: #fff !important;
   border-right-color: transparent !important;
 }
 
@@ -19425,13 +19425,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li a {
   border-bottom-color: transparent !important;
   border-right-color: transparent !important;
-  border-left-color: #dbdbdb !important;
+  border-left-color: #fff !important;
   border-radius: 0 7px 7px 0;
 }
 
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li.is-active a {
-  border-bottom-color: #dbdbdb !important;
-  border-right-color: #dbdbdb !important;
+  border-bottom-color: #fff !important;
+  border-right-color: #fff !important;
   border-left-color: transparent !important;
 }
 
@@ -20380,5 +20380,9 @@ body {
   width: 100%;
   position: absolute;
   opacity: 0;
+}
+
+.gray-in-dark-mode {
+  background-color: #fff;
 }
 

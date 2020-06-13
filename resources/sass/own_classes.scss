@@ -35,3 +35,7 @@ html, body {
     position: absolute;
     opacity: 0;
 }
+.gray-in-dark-mode {
+    $gray-if-dark-mode: #fff !default;
+    background-color: $gray-if-dark-mode;
+}
