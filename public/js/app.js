@@ -15142,10 +15142,9 @@ __webpack_require__.r(__webpack_exports__);
     bridge.send("VKWebAppInit", {}).then(function (e) {
       return _this.appInit = e.result;
     });
-    bridge.subscribe(function (data) {
-      if (data.detail.type === 'VKWebAppUpdateConfig') {
-        var scheme = data.scheme ? data.scheme : 'client_light';
-        alert(scheme);
+    bridge.subscribe(function (e) {
+      if (e.detail.type === 'VKWebAppUpdateConfig') {
+        var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';
 
         if (scheme !== 'client_light') {
           document.getElementById('light_scheme').media = "none";
