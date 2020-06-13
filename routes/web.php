@@ -22,6 +22,7 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::middleware('auth.vk')->group(function () {
     Route::get('/room', 'RoomController@index')->name('own-room');
     Route::get('/room/{room}', 'RoomController@get')->name('room');
+    Route::get('/room/{room}/check', 'RoomController@check')->name('room');
     Route::post('/room', 'RoomController@create')->name('room.create');
     Route::put('/room', 'RoomController@update')->name('room.update');
     Route::delete('/room', 'RoomController@delete')->name('room.delete');

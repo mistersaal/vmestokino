@@ -15363,6 +15363,80 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConnectModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConnectModal */ "./resources/js/views/Menu/ConnectModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ConnectButtons",
+  components: {
+    ConnectModal: _ConnectModal__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    open: function open() {
+      this.$router.push(this.$route.fullPath + '#connect');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -15378,7 +15452,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ConnectButtons"
+  name: "ConnectModal",
+  data: function data() {
+    return {
+      isLoading: false,
+      number: '',
+      password: ''
+    };
+  },
+  computed: {
+    disabled: function disabled() {
+      return this.number === '' || this.password === '';
+    },
+    isOpen: function isOpen() {
+      return this.$route.hash === '#connect';
+    }
+  },
+  methods: {
+    close: function close() {
+      this.$router.back();
+    },
+    testConnection: function testConnection() {
+      var _this = this;
+
+      this.isLoading = true;
+      axios.get('/room/' + this.number + '/check?password=' + this.password).then(this.connect)["catch"](function () {
+        _this.$buefy.toast.open({
+          message: 'Номер или пароль неверный!',
+          type: 'is-danger',
+          duration: 3000
+        });
+
+        _this.isLoading = false;
+      });
+    },
+    connect: function connect() {
+      this.$router.push('/room/' + this.number + '?password=' + this.password);
+    },
+    numInput: function numInput(value) {
+      var _this2 = this;
+
+      if (value > 999999999) {
+        this.$nextTick(function () {
+          _this2.number = 999999999;
+        });
+      } else if (value < 0) {
+        this.$nextTick(function () {
+          _this2.number = 0;
+        });
+      }
+    },
+    onlyInt: function onlyInt($event) {
+      var keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      console.log(keyCode);
+
+      if (keyCode < 48 || keyCode > 57) {
+        $event.preventDefault();
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -61854,42 +61986,195 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "box" }, [
-    _c("h2", { staticClass: "title is-5" }, [_vm._v("Присоединиться")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "buttons" },
-      [
-        _c(
-          "b-button",
-          {
-            attrs: {
-              type: "is-primary",
-              size: "is-medium",
-              expanded: "",
-              "icon-left": "list-ol"
+  return _c(
+    "div",
+    { staticClass: "box" },
+    [
+      _c("h2", { staticClass: "title is-5" }, [_vm._v("Присоединиться")]),
+      _vm._v(" "),
+      _c("connect-modal"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "buttons" },
+        [
+          _c(
+            "b-button",
+            {
+              attrs: {
+                type: "is-primary",
+                size: "is-medium",
+                expanded: "",
+                "icon-left": "list-ol"
+              },
+              on: { click: _vm.open }
+            },
+            [_vm._v("\n            По номеру комнаты\n        ")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      attrs: {
+        active: _vm.isOpen,
+        "has-modal-card": "",
+        "trap-focus": "",
+        "can-cancel": ["escape", "outside"],
+        "destroy-on-hide": ""
+      },
+      on: { close: _vm.close }
+    },
+    [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.testConnection($event)
             }
-          },
-          [_vm._v("\n            По номеру комнаты\n        ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "b-button",
-          {
-            attrs: {
-              type: "is-primary",
-              size: "is-medium",
-              expanded: "",
-              "icon-left": "link"
-            }
-          },
-          [_vm._v("\n            По ссылке\n        ")]
-        )
-      ],
-      1
-    )
-  ])
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-card" }, [
+            _c("header", { staticClass: "modal-card-head" }, [
+              _c(
+                "p",
+                { staticClass: "modal-card-title has-text-weight-bold" },
+                [
+                  _vm._v(
+                    "\n                    Присоединиться\n                "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "section",
+              { staticClass: "modal-card-body" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Номер комнаты" } },
+                  [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Номер комнаты",
+                        type: "number",
+                        "validation-message": "Обязательное поле",
+                        "has-counter": false,
+                        required: ""
+                      },
+                      on: {
+                        input: function($event) {
+                          return _vm.numInput($event)
+                        }
+                      },
+                      nativeOn: {
+                        keypress: function($event) {
+                          return _vm.onlyInt($event)
+                        }
+                      },
+                      model: {
+                        value: _vm.number,
+                        callback: function($$v) {
+                          _vm.number = _vm._n($$v)
+                        },
+                        expression: "number"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-field",
+                  { attrs: { label: "Пароль" } },
+                  [
+                    _c("b-input", {
+                      attrs: {
+                        placeholder: "Пароль",
+                        type: "text",
+                        "validation-message": "Обязательное поле",
+                        maxlength: "10",
+                        "has-counter": false,
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.password,
+                        callback: function($$v) {
+                          _vm.password = $$v
+                        },
+                        expression: "password"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "footer",
+              { staticClass: "modal-card-foot" },
+              [
+                _c("b-button", { on: { click: _vm.close } }, [
+                  _vm._v("Отмена")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "b-button",
+                  {
+                    attrs: {
+                      type: "is-primary",
+                      "native-type": "submit",
+                      disabled: _vm.disabled,
+                      loading: _vm.isLoading
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Присоединиться\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -79937,6 +80222,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectButtons_vue_vue_type_template_id_0e0c6d38_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectButtons_vue_vue_type_template_id_0e0c6d38_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/ConnectModal.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/Menu/ConnectModal.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true& */ "./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true&");
+/* harmony import */ var _ConnectModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConnectModal.vue?vue&type=script&lang=js& */ "./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConnectModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5012e3b8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Menu/ConnectModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConnectModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/ConnectModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/ConnectModal.vue?vue&type=template&id=5012e3b8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

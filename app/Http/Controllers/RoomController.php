@@ -34,6 +34,13 @@ class RoomController extends Controller
         return $room;
     }
 
+    public function check(Room $room, PasswordRequest $request)
+    {
+        $this->authorize('view', [$room, $request->password]);
+
+        return response(['message' => 'Доступ разрешен'], 200);
+    }
+
     public function create(RoomDataRequest $request)
     {
         $this->authorize('create', Room::class);
