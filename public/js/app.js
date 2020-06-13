@@ -15145,6 +15145,7 @@ __webpack_require__.r(__webpack_exports__);
     bridge.subscribe(function (data) {
       if (data.detail.type === 'VKWebAppUpdateConfig') {
         var scheme = data.scheme ? data.scheme : 'client_light';
+        alert(scheme);
 
         if (scheme !== 'client_light') {
           document.getElementById('light_scheme').media = "none";

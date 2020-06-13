@@ -27,6 +27,7 @@
             bridge.subscribe(data => {
                 if (data.detail.type === 'VKWebAppUpdateConfig') {
                     const scheme = data.scheme ? data.scheme : 'client_light';
+                    alert(scheme);
                     if (scheme !== 'client_light') {
                         document.getElementById('light_scheme').media = "none";
                         document.getElementById('dark_scheme').media = "";
