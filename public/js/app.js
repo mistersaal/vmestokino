@@ -15524,6 +15524,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "DeleteRoom",
+  data: function data() {
+    return {
+      isLoading: false
+    };
+  },
+  computed: {
+    isOpen: function isOpen() {
+      return this.$route.hash === '#delete';
+    }
+  },
+  methods: {
+    close: function close() {
+      this.$router.back();
+    },
+    deleteRoom: function deleteRoom() {
+      var _this = this;
+
+      this.isLoading = true;
+      axios["delete"]('/room').then(function (r) {
+        _this.$store.commit('deletedOwnRoom');
+
+        _this.$buefy.toast.open({
+          message: r.data.message,
+          queue: false
+        });
+
+        _this.isLoading = false;
+
+        _this.close();
+      })["catch"](function (e) {
+        _this.isLoading = false;
+
+        _this.$buefy.toast.open({
+          message: e.response.data.message,
+          type: 'is-danger',
+          queue: false
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/InfoButtons.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/InfoButtons.vue?vue&type=script&lang=js& ***!
@@ -15589,6 +15676,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RoomDataControl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/RoomDataControl */ "./resources/js/components/RoomDataControl.vue");
+/* harmony import */ var _DeleteRoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteRoom */ "./resources/js/views/Menu/DeleteRoom.vue");
 //
 //
 //
@@ -15642,6 +15730,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RoomButtons",
@@ -15660,37 +15750,14 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push(this.$route.fullPath + '#update');
     },
     deleteRoom: function deleteRoom() {
-      var _this = this;
-
-      this.$buefy.dialog.confirm({
-        title: 'Удаление комнаты',
-        message: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B, \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443?<br>\n                            \u0412\u0441\u0435, \u043A\u0442\u043E \u0432 \u043D\u0435\u0439 \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F, \u0431\u0443\u0434\u0443\u0442 \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0435\u043D\u044B \u0432 \u043C\u0435\u043D\u044E.",
-        confirmText: 'Удалить комнату',
-        cancelText: 'Отмена',
-        type: 'is-danger',
-        onConfirm: function onConfirm() {
-          axios["delete"]('/room').then(function (r) {
-            _this.$store.commit('deletedOwnRoom');
-
-            _this.$buefy.toast.open({
-              message: r.data.message,
-              queue: false
-            });
-          })["catch"](function (e) {
-            _this.$buefy.toast.open({
-              message: e.response.data.message,
-              type: 'is-danger',
-              queue: false
-            });
-          });
-        }
-      });
+      this.$router.push(this.$route.fullPath + '#delete');
     },
     toOwnRoom: function toOwnRoom() {
       this.$router.push('/room');
     }
   },
   components: {
+    DeleteRoom: _DeleteRoom__WEBPACK_IMPORTED_MODULE_1__["default"],
     RoomDataControl: _components_RoomDataControl__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
@@ -62860,6 +62927,109 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      attrs: {
+        active: _vm.isOpen,
+        "has-modal-card": "",
+        "trap-focus": "",
+        "can-cancel": ["escape", "outside"],
+        "destroy-on-hide": ""
+      },
+      on: { close: _vm.close }
+    },
+    [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.deleteRoom($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-card" }, [
+            _c("header", { staticClass: "modal-card-head" }, [
+              _c(
+                "p",
+                { staticClass: "modal-card-title has-text-weight-bold" },
+                [
+                  _vm._v(
+                    "\n                    Удаление комнаты\n                "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("section", { staticClass: "modal-card-body" }, [
+              _c("p", [
+                _vm._v(
+                  "\n                    Вы уверены, что хотите удалить комнату?"
+                ),
+                _c("br"),
+                _vm._v(
+                  "\n                    Все, кто в ней находятся, будут возвращены в меню.\n                "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "footer",
+              { staticClass: "modal-card-foot" },
+              [
+                _c("b-button", { on: { click: _vm.close } }, [
+                  _vm._v("Отмена")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "b-button",
+                  {
+                    attrs: {
+                      type: "is-danger",
+                      "native-type": "submit",
+                      loading: _vm.isLoading
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Удалить комнату\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/InfoButtons.vue?vue&type=template&id=7237b9c2&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Menu/InfoButtons.vue?vue&type=template&id=7237b9c2&scoped=true& ***!
@@ -62982,6 +63152,8 @@ var render = function() {
           types: _vm.types
         }
       }),
+      _vm._v(" "),
+      _c("delete-room"),
       _vm._v(" "),
       !_vm.ownRoom
         ? _c(
@@ -81065,6 +81237,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConnectModal_vue_vue_type_template_id_5012e3b8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/DeleteRoom.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/Menu/DeleteRoom.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true& */ "./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true&");
+/* harmony import */ var _DeleteRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteRoom.vue?vue&type=script&lang=js& */ "./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeleteRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2a358427",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Menu/DeleteRoom.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeleteRoom.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/DeleteRoom.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Menu/DeleteRoom.vue?vue&type=template&id=2a358427&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteRoom_vue_vue_type_template_id_2a358427_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

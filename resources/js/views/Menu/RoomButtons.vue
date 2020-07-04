@@ -7,6 +7,7 @@
             :default-type="defaultType"
             :types="types"
         ></room-data-control>
+        <delete-room></delete-room>
         <div class="buttons" v-if="!ownRoom">
             <b-button v-for="(button, type) in types" :key="button.id"
                       :type="button.color"
@@ -53,6 +54,7 @@
 
 <script>
     import RoomDataControl from "../../components/RoomDataControl";
+    import DeleteRoom from "./DeleteRoom";
     export default {
         name: "RoomButtons",
         data() {
@@ -70,32 +72,13 @@
                 this.$router.push(this.$route.fullPath + '#update');
             },
             deleteRoom() {
-                this.$buefy.dialog.confirm({
-                    title: 'Удаление комнаты',
-                    message: `Вы уверены, что хотите удалить комнату?<br>
-                                Все, кто в ней находятся, будут возвращены в меню.`,
-                    confirmText: 'Удалить комнату',
-                    cancelText: 'Отмена',
-                    type: 'is-danger',
-                    onConfirm: () => {
-                        axios.delete('/room').then((r) => {
-                            this.$store.commit('deletedOwnRoom');
-                            this.$buefy.toast.open({message: r.data.message, queue: false});
-                        }).catch((e) => {
-                            this.$buefy.toast.open({
-                                message: e.response.data.message,
-                                type: 'is-danger',
-                                queue: false
-                            })
-                        });
-                    }
-                })
+                this.$router.push(this.$route.fullPath + '#delete');
             },
             toOwnRoom() {
                 this.$router.push('/room');
             }
         },
-        components: {RoomDataControl},
+        components: {DeleteRoom, RoomDataControl},
         computed: {
             ownRoom() {
                 return this.$store.state.ownRoom;
