@@ -22,6 +22,16 @@
             }
         },
         beforeCreate() {
+            axios.interceptors.response.use(undefined, (error) => {
+                if (!error.response) {
+                    this.$buefy.toast.open({
+                        message: 'Что-то с интернет соединением...',
+                        type: 'is-danger',
+                        queue: false
+                    })
+                }
+                return Promise.reject(error);
+            });
             bridge.subscribe(e => {
                 if (e.detail.type === 'VKWebAppUpdateConfig') {
                     const scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';

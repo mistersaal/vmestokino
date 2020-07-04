@@ -15139,6 +15139,17 @@ __webpack_require__.r(__webpack_exports__);
   beforeCreate: function beforeCreate() {
     var _this = this;
 
+    axios.interceptors.response.use(undefined, function (error) {
+      if (!error.response) {
+        _this.$buefy.toast.open({
+          message: 'Что-то с интернет соединением...',
+          type: 'is-danger',
+          queue: false
+        });
+      }
+
+      return Promise.reject(error);
+    });
     bridge.subscribe(function (e) {
       if (e.detail.type === 'VKWebAppUpdateConfig') {
         var scheme = e.detail.data.scheme ? e.detail.data.scheme : 'client_light';

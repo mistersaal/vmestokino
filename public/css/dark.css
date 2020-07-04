@@ -20386,3 +20386,7 @@ body {
   background-color: #363636;
 }
 
+.loading-overlay {
+  z-index: unset;
+}
+

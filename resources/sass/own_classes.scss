@@ -39,3 +39,6 @@ html, body {
     $gray-if-dark-mode: #fff !default;
     background-color: $gray-if-dark-mode;
 }
+.loading-overlay {
+    z-index: unset;
+}
