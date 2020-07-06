@@ -30,6 +30,7 @@ import {
     faBolt,
     faPaperPlane,
     faChevronDown,
+    faCog,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -64,4 +65,5 @@ library.add(
     faBolt,
     faPaperPlane,
     faChevronDown,
+    faCog,
 );

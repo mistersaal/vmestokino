@@ -43,6 +43,14 @@
             });
             bridge.send("VKWebAppInit", {})
                 .then(e => this.appInit = e.result);
+            bridge.send('VKWebAppStorageGet', {keys: ['messageAudio']})
+                .then(({keys}) => {
+                    if (!keys[0].value) {
+                        bridge.send('VKWebAppStorageSet', {key: 'messageAudio', value: 'true'});
+                        keys[0].value = 'true';
+                    }
+                    this.$store.commit('setAudio', keys[0].value === 'true');
+                })
             setTimeout(() => {
                 if (!this.appInit) {
                     this.$buefy.snackbar.open({

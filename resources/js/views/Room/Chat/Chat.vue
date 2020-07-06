@@ -53,6 +53,7 @@
                 sending: false,
                 chatPosition: 0,
                 needScrollDown: false,
+                messageAudio: {},
             };
         },
         computed: {
@@ -83,10 +84,14 @@
             },
         },
         created() {
+            this.messageAudio = new Audio('/audio/message.mp3');
             Echo.join('room.player.' + this.id + '.' + this.password)
                 .listen('MessageSent', (e) => {
                     e.message.own = this.$store.state.user.id === e.message.user.id;
                     this.messages.push(e.message);
+                    if (this.$store.state.audioOn) {
+                        this.messageAudio.play();
+                    }
                     if (this.positionAtBottom()) {
                         this.$nextTick(this.scrollDown);
                     } else {

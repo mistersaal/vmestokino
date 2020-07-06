@@ -11,6 +11,7 @@
                 :password="room.password"
                 :link="link"
             ></invite-friends>
+            <settings></settings>
             <div class="buttons has-addons is-right" v-if="!isMobile">
                 <b-button
                     @click="invite"
@@ -29,6 +30,10 @@
                     :loading="syncing"
                     v-else
                 >{{synced ? 'Синхронизировано' : 'Синхронизировать'}}</b-button>
+                <b-button
+                    @click="settings"
+                    icon-left="cog"
+                ></b-button>
             </div>
             <div class="buttons has-addons is-right" v-else>
                 <b-button
@@ -48,6 +53,10 @@
                     :loading="syncing"
                     v-else
                 ></b-button>
+                <b-button
+                    @click="settings"
+                    icon-left="cog"
+                ></b-button>
             </div>
 
         </div>
@@ -57,16 +66,17 @@
 <script>
     import RoomDataControl from "../../components/RoomDataControl";
     import InviteFriends from "./InviteFriends";
+    import Settings from "./Settings";
     export default {
         name: "ControlButtons",
-        components: {InviteFriends, RoomDataControl},
+        components: {Settings, InviteFriends, RoomDataControl},
         props: ['room', 'isAdmin', 'synced', 'syncing'],
         computed: {
             link() {
                 return this.$store.state.appLink + '#' + this.room.id + '_' + this.room.password;
             },
             isMobile() {
-                return window.innerWidth < 1024;
+                return window.innerWidth < 780;
             }
         },
         methods: {
@@ -75,6 +85,9 @@
             },
             invite() {
                 this.$router.push(this.$route.fullPath + '#invite');
+            },
+            settings() {
+                this.$router.push(this.$route.fullPath + '#settings');
             },
             sync() {
                 this.$emit('sync');

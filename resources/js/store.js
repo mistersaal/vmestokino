@@ -14,6 +14,7 @@ export default new Vuex.Store({
         },
         user: {},
         appLink: 'https://vk.com/app7447010',
+        audioOn: true,
     },
     mutations: {
         createdOwnRoom(state, payload) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
         },
         setUser(state, user) {
             state.user = user;
-        }
+        },
+        setAudio(state, audio) {
+            state.audioOn = audio;
+        },
     }
 })
