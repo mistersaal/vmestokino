@@ -38,11 +38,11 @@
                             required>
                         </b-input>
                     </b-field>
-                    <b-checkbox :value="!room.everyone_control"
+                    <b-switch :value="!room.everyone_control"
                                 @input="room.everyone_control = !$event"
                     >
                         Видео управляет только создатель комнаты
-                    </b-checkbox>
+                    </b-switch>
                 </section>
                 <footer class="modal-card-foot">
                     <b-button @click="close">Отмена</b-button>
