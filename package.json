@@ -12,7 +12,7 @@
     "devDependencies": {
         "@creativebulma/bulma-tooltip": "^1.2.0",
         "@vkontakte/vk-bridge": "^2.2.2",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "buefy": "^0.8.20",
         "cross-env": "^7.0",
         "laravel-echo": "^1.8.0",
